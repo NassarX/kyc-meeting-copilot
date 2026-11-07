@@ -1,0 +1,103 @@
+# Bounce reasons v0.1: why a KYC file comes back from compliance.
+# Public sources only. Every reason names its source.
+#   source.type: public | interview   (no other type is accepted by the loader)
+#   source.checked: true = the ref was read against the source text on 8 Nov 2026 (trail in SOURCES.md).
+#   effect: bounce = compliance would send it back; flag = shown to the RM, never blocks (design: flag, don't block).
+version: br-v0.2
+lists:
+  high_risk_jurisdictions:
+    as_of: "2026-10-30"
+    source: {type: public, checked: true,
+             ref: "FATF statements of 30 Oct 2026: jurisdictions under increased monitoring (18) and subject to a call for action (3), the lists AMLR Annex III point (3)(a) points to. Read via two independent secondary reports; fatf-gafi.org blocks automated access, so re-check by hand before a public demo"}
+    # increased monitoring: AO BO BA CM HT IQ KE KW LA LB NP PG SS SY VE VN VG YE; call for action: IR KP MM
+    members: [AO, BO, BA, CM, HT, IQ, KE, KW, LA, LB, NP, PG, SS, SY, VE, VN, VG, YE, IR, KP, MM]
+reasons:
+  - id: BR-ID-DOB
+    title: Date of birth missing
+    category: fact
+    effect: bounce
+    source: {type: public, checked: true,
+             ref: "Regulation (EU) 2024/1624 (AMLR) Art. 22(1)(a)(ii): obliged entities obtain the place and full date of birth of a natural person"}
+    check: {kind: missing_fact, field: identity.date_of_birth}
+
+  - id: BR-DOC-ID-MISSING
+    title: No identity document on file
+    category: document
+    effect: bounce
+    source: {type: public, checked: true,
+             ref: "Regulation (EU) 2024/1624 (AMLR) Art. 22(6)(a): identity is verified by the submission of an identity document, passport or equivalent (or eID under 22(6)(b), not modelled in the PoC)"}
+    check: {kind: document_missing, document_type: passport}
+
+  - id: BR-DOC-ID-EXPIRED
+    title: Identity document expired on the case date
+    category: document
+    effect: bounce
+    source: {type: public, checked: true,
+             ref: "Inferred, not stated in law: AMLR Art. 22(6)(a) requires an identity document, and the draft AMLA RTS on CDD (Art. 28(1) AMLR) Art. 6(1) requires it to show its expiry date. Neither text says an expired document is refused. Treated as a bounce on common practice; confirm in interviews"}
+    check: {kind: document_expired, document_type: passport}
+
+  - id: BR-TAX-RESIDENCE-DIFFERS
+    title: Tax residence differs from country of residence
+    category: consistency
+    effect: flag
+    source: {type: public, checked: true,
+             ref: "OECD Common Reporting Standard, Section IV(A): confirm the reasonableness of the tax self-certification against information held, including AML/KYC documentation. A differing residence is a prompt to check, not an error"}
+    check: {kind: field_mismatch, fields: [identity.residence_country, identity.tax_residence]}
+
+  - id: BR-EDD-LARGE-FUNDING
+    title: Large initial funding, enhanced scrutiny of source of funds
+    category: risk
+    effect: flag
+    source: {type: public, checked: true,
+             ref: "AMLR Art. 34(5): extra EDD where a higher-risk relationship handles at least EUR 5,000,000 for a customer with at least EUR 50,000,000 in total assets; EBA/GL/2021/02 Guideline 12, para. 12.4: very high-value transactions. The PoC uses only the EUR 5,000,000 part as a flag, a simplification"}
+    check: {kind: threshold, field: expected.initial_funding_amount, at_least: "5000000", currency: EUR}
+
+  # ---- hard triggers (step 4). Before G1 they flag "enhanced due diligence needed"; they never block. ----
+  - id: BR-EDD-PEP
+    title: Politically exposed person (self or family)
+    category: risk
+    effect: flag
+    source: {type: public, checked: true,
+             ref: "AMLR Art. 42(1): EDD for PEPs, incl. establishing source of wealth and funds; Art. 46: the same measures apply to family members and close associates"}
+    check: {kind: any_fact, fields: [pep.self_public_function, pep.family_public_function], cleared_by: pep.none_declared}
+
+  - id: BR-EDD-HIGH-RISK-COUNTRY
+    title: Link to a high-risk jurisdiction
+    category: risk
+    effect: flag
+    source: {type: public, checked: true,
+             ref: "AMLR Art. 34(3) and Annex III point (3)(a): third countries under FATF increased monitoring are a higher-risk factor; see list high_risk_jurisdictions"}
+    check: {kind: country_in_list, list: high_risk_jurisdictions,
+            fields: [identity.residence_country, identity.nationality, identity.tax_residence, structure.jurisdiction, asset.location]}
+
+  - id: BR-EDD-ASSET-VEHICLE
+    title: Personal asset-holding vehicle (foundation or trust)
+    category: risk
+    effect: flag
+    source: {type: public, checked: true,
+             ref: "Inferred: AMLR Annex III point (1)(c) lists legal persons or arrangements that are personal asset-holding vehicles as a higher-risk factor. Treating every client foundation or trust as one is a PoC simplification"}
+    check: {kind: value_in, field: structure.type, values: [foundation, trust]}
+
+  - id: BR-EDD-SOW-UNCORROBORATED
+    title: Large wealth event with no corroborating document
+    category: risk
+    effect: flag
+    source: {type: public, checked: true,
+             ref: "AMLR Art. 34(4)(c): EDD may require more information on source of wealth. The EUR 5,000,000 line follows Art. 34(5) (a placeholder threshold); which document corroborates which event type is a PoC choice"}
+    check:
+      kind: uncorroborated_amount
+      field: wealth_event.amount
+      type_field: wealth_event.type
+      at_least: "5000000"
+      currency: EUR
+      corroborated_by:
+        business_sale: [sale_agreement, company_register_extract, shareholder_register]
+        dividends: [bank_statement, company_register_extract, tax_return]
+        inheritance: [inheritance_certificate]
+        salary: [payslip, employment_contract, tax_return]
+        investment_gains: [bank_statement, tax_return]
+        real_estate_sale: [property_deed, sale_agreement]
+        gift: [gift_letter]
+        other: [source_of_funds_letter]
+
+  # Deferred: sanctions stub hit (invariant I8) needs a screening stub in the dossier; not built yet.

@@ -1,0 +1,55 @@
+# Fact taxonomy v0.2 = v0.1 plus document fields and a document-type list (7 Nov 2026).
+# NOT yet checked against a real onboarding checklist (an open question).
+# type: text | enum | date | money | percent | country | bool
+# critical: RM must confirm before it counts (I5). required: part of the gap checklist (M3).
+# grouped: facts must carry a subject_ref (e.g. wealth_event/1) so related facts stay together.
+version: tax-v0.2
+fields:
+  identity.full_name:           {type: text,    critical: true,  required: true}
+  identity.date_of_birth:       {type: date,    critical: true,  required: true}
+  identity.nationality:         {type: country, critical: true,  required: true}
+  identity.residence_country:   {type: country, critical: true,  required: true}
+  identity.residence_since:     {type: date,    critical: false, required: false}
+  identity.tax_residence:       {type: country, critical: true,  required: true}
+  relationship.person_present:  {type: text,    critical: false, required: false, grouped: true}
+  relationship.role:            {type: enum,    critical: false, required: false, grouped: true,
+                                 values: [spouse, child, parent, sibling, accountant, lawyer, advisor, other]}
+  wealth_event.type:            {type: enum,    critical: false, required: true,  grouped: true,
+                                 values: [business_sale, dividends, inheritance, salary, investment_gains, real_estate_sale, gift, other]}
+  wealth_event.date:            {type: date,    critical: true,  required: true,  grouped: true}
+  wealth_event.amount:          {type: money,   critical: true,  required: true,  grouped: true}
+  wealth_event.counterparty:    {type: text,    critical: true,  required: false, grouped: true}
+  wealth_event.ownership_pct:   {type: percent, critical: true,  required: false, grouped: true}
+  asset.type:                   {type: enum,    critical: false, required: false, grouped: true,
+                                 values: [cash, securities, brokerage_account, real_estate, private_company, other]}
+  asset.location:               {type: country, critical: false, required: false, grouped: true}
+  asset.value:                  {type: money,   critical: true,  required: false, grouped: true}
+  asset.custodian:              {type: text,    critical: false, required: false, grouped: true}
+  structure.type:               {type: enum,    critical: false, required: false, grouped: true,
+                                 values: [company, foundation, trust, insurance_wrapper, other]}
+  structure.name:               {type: text,    critical: true,  required: false, grouped: true}
+  structure.jurisdiction:       {type: country, critical: true,  required: false, grouped: true}
+  structure.established:        {type: date,    critical: true,  required: false, grouped: true}
+  structure.beneficial_owner:   {type: text,    critical: true,  required: false, grouped: true}
+  income.source:                {type: text,    critical: false, required: true,  grouped: true}
+  income.amount:                {type: money,   critical: true,  required: true,  grouped: true}
+  liability.type:               {type: text,    critical: false, required: false, grouped: true}
+  liability.rate:               {type: percent, critical: false, required: false, grouped: true}
+  pep.self_public_function:     {type: text,    critical: true,  required: false}
+  pep.family_public_function:   {type: text,    critical: true,  required: false, grouped: true}
+  pep.none_declared:            {type: bool,    critical: true,  required: true}
+  expected.initial_funding_source: {type: text,  critical: false, required: true}
+  expected.initial_funding_amount: {type: money, critical: true,  required: true}
+  expected.annual_flows:        {type: money,   critical: false, required: false}
+  # Document facts are derived from ChecklistItem records; subject_ref = document/<item_id>.
+  # Validity (expired / missing) is computed by the rules against Case.as_of_date, never stored as a fact.
+  document.type:                {type: enum,    critical: false, required: false, grouped: true, values_from: document_types}
+  document.present:             {type: bool,    critical: false, required: false, grouped: true}
+  document.issue_date:          {type: date,    critical: false, required: false, grouped: true}
+  document.expiry_date:         {type: date,    critical: false, required: false, grouped: true}
+
+# Generic KYC document categories from public guidance, not from any bank's checklist.
+document_types: [passport, national_id, residence_permit, proof_of_address, tax_residence_certificate,
+                 bank_statement, payslip, employment_contract, tax_return, sale_agreement,
+                 company_register_extract, shareholder_register, trust_deed, inheritance_certificate,
+                 property_deed, gift_letter, source_of_funds_letter, other]

@@ -1,0 +1,44 @@
+[project]
+name = "kyc-meeting-copilot"
+version = "0.1.0"
+description = "Checks a client onboarding meeting for KYC gaps, contradictions and compliance flags before the file is submitted. Every fact quotes the words it came from. Synthetic data only."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Mahmoud Nassar" }]
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=2.6.0",
+    "pydantic>=2.7",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+kyc-check = "kyc_copilot.run:cli"
+kyc-eval = "kyc_copilot.eval.harness:cli"
+kyc-viewer = "kyc_copilot.viewer:cli"
+
+[project.optional-dependencies]
+audio = [
+    "mlx-whisper>=0.4.3",
+]
+viewer = [
+    "fastapi>=0.162.2",
+    "python-multipart>=0.0.33",
+    "uvicorn>=0.54.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kyc_copilot"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
