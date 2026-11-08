@@ -1,0 +1,39 @@
+# Toy case for the case-format tests. Synthetic people only (I12).
+case_id: T00
+title: Toy business sale with a self-correction
+origin: author
+as_of_date: 2026-11-01
+lead: {lead_ref: lead-t00, rm_id: rm.alice}
+transcript:
+  meeting_date: 2026-10-28
+  utterances:
+    - {utt_id: u-01, speaker: rm, text: "Thanks for coming in. Where are the funds coming from?"}
+    - {utt_id: u-02, speaker: client, text: "I sold my company last year for 3.4 million, sorry, 2.4 million euros."}
+    - {utt_id: u-03, speaker: client, text: "I live in Luxembourg but I am still tax resident in France."}
+dossier:
+  - {field: identity.full_name, value: {kind: text, value: "Ana Toy-Example"}}
+  - {field: identity.residence_country, value: {kind: country, iso2: LU}}
+checklist:
+  - {item_id: chk-01, document_type: passport, present: true, issue_date: 2016-10-01, expiry_date: 2026-10-01}
+  - {item_id: chk-02, document_type: sale_agreement, present: false}
+gold:
+  facts:
+    - field: wealth_event.amount
+      subject_ref: wealth_event/1
+      value: {kind: money, amount: "2400000", currency: EUR}
+      spans: [{utt_id: u-02, start: 32, end: 69, quote: "3.4 million, sorry, 2.4 million euros"}]
+      derivation: self-correction, the second figure stands
+    - field: identity.tax_residence
+      value: {kind: country, iso2: FR}
+      spans: [{utt_id: u-03, start: 36, end: 58, quote: "tax resident in France"}]
+  gaps: [expected.initial_funding_amount, expected.initial_funding_source, identity.date_of_birth, identity.nationality, income.amount, income.source, pep.none_declared, wealth_event.date@wealth_event/1, wealth_event.type@wealth_event/1]
+  contradictions: []
+  bounce_reasons: [BR-ID-DOB, BR-DOC-ID-EXPIRED, BR-TAX-RESIDENCE-DIFFERS]
+traps:
+  - {kind: extraction_trap, note: "self-corrected amount, 3.4M must not be extracted", refs: [u-02]}
+  - {kind: missing_required, note: "no date of birth anywhere", refs: [identity.date_of_birth]}
+seeded_drafts:
+  - draft_id: T00-S1
+    field: wealth_event.amount
+    subject_ref: wealth_event/1
+    wrong_value: {kind: money, amount: "3400000", currency: EUR}

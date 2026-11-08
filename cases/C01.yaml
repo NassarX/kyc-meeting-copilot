@@ -1,0 +1,360 @@
+# C01: synthetic meeting written by Claude as the capture test script. No real people or companies.
+# Synthetic people only (I12). Span offsets were computed from the text, not typed by hand.
+case_id: C01
+title: 'Business sale and dividends, simple (spike script: Marchetti-Okonkwo)'
+origin: author
+as_of_date: '2026-11-07'
+lead:
+  lead_ref: lead-c01
+  rm_id: rm.alice
+transcript:
+  meeting_date: '2026-11-07'
+  utterances:
+  - utt_id: u-01
+    speaker: rm
+    text: 'Thank you for coming, Ms Marchetti-Okonkwo. Let me check the spelling: M-A-R-C-H-E-T-T-I, then a hyphen, O-K-O-N-K-W-O.'
+  - utt_id: u-02
+    speaker: client
+    text: That is right. This is Dr Tomasz Wierzbicki, my accountant.
+  - utt_id: u-03
+    speaker: accountant
+    text: Pleased to meet you. I have worked with Isabelle since the fourteenth of March, twenty nineteen.
+  - utt_id: u-04
+    speaker: rm
+    text: Could you walk me through where your wealth comes from?
+  - utt_id: u-05
+    speaker: client
+    text: Mostly from my company, Valdoria Holdings S.A. On the second of September, twenty twenty-two, I sold a forty percent
+      stake for one point two five million Swiss francs.
+  - utt_id: u-06
+    speaker: rm
+    text: And the rest of the company?
+  - utt_id: u-07
+    speaker: client
+    text: I kept sixty percent. The company paid me dividends of three point four million euros, no, sorry, two point four
+      million euros.
+  - utt_id: u-08
+    speaker: accountant
+    text: It was two point four, yes.
+  - utt_id: u-09
+    speaker: rm
+    text: Where do you hold these assets now?
+  - utt_id: u-10
+    speaker: client
+    text: A brokerage account with seven hundred eighty thousand dollars, and a foundation in Liechtenstein, which I set up
+      on the third of April, twenty twenty-one.
+  - utt_id: u-11
+    speaker: rm
+    text: And your income today?
+  - utt_id: u-12
+    speaker: client
+    text: Consulting. About ninety-five thousand Swiss francs a year. I moved to Luxembourg three years ago in June.
+  - utt_id: u-13
+    speaker: rm
+    text: Any borrowing?
+  - utt_id: u-14
+    speaker: client
+    text: A mortgage at four and a quarter percent.
+  - utt_id: u-15
+    speaker: rm
+    text: 'Let me recap: Isabelle Marchetti-Okonkwo, and dividends of two point four million euros. Please correct me.'
+dossier:
+- field: identity.full_name
+  value:
+    kind: text
+    value: Isabelle Marchetti-Okonkwo
+- field: identity.nationality
+  value:
+    kind: country
+    iso2: IT
+checklist:
+- item_id: chk-01
+  document_type: passport
+  present: true
+  issue_date: '2021-02-10'
+  expiry_date: '2031-02-09'
+- item_id: chk-02
+  document_type: proof_of_address
+  present: true
+  issue_date: '2026-09-15'
+- item_id: chk-03
+  document_type: sale_agreement
+  present: false
+gold:
+  facts:
+  - field: identity.full_name
+    value:
+      kind: text
+      value: Isabelle Marchetti-Okonkwo
+    spans:
+    - utt_id: u-15
+      start: 14
+      end: 40
+      quote: Isabelle Marchetti-Okonkwo
+  - field: identity.residence_country
+    value:
+      kind: country
+      iso2: LU
+    spans:
+    - utt_id: u-12
+      start: 60
+      end: 81
+      quote: I moved to Luxembourg
+  - field: identity.residence_since
+    value:
+      kind: relative_date
+      words: three years ago in June
+      anchor: '2026-11-07'
+      resolved: '2023-06-01'
+    spans:
+    - utt_id: u-12
+      start: 82
+      end: 105
+      quote: three years ago in June
+    derivation: relative date resolved against the meeting date, month precision
+  - field: relationship.person_present
+    subject_ref: relationship/1
+    value:
+      kind: text
+      value: Dr Tomasz Wierzbicki
+    spans:
+    - utt_id: u-02
+      start: 23
+      end: 43
+      quote: Dr Tomasz Wierzbicki
+  - field: relationship.role
+    subject_ref: relationship/1
+    value:
+      kind: text
+      value: accountant
+    spans:
+    - utt_id: u-02
+      start: 45
+      end: 58
+      quote: my accountant
+  - field: wealth_event.type
+    subject_ref: wealth_event/1
+    value:
+      kind: text
+      value: business_sale
+    spans:
+    - utt_id: u-05
+      start: 94
+      end: 122
+      quote: I sold a forty percent stake
+  - field: wealth_event.date
+    subject_ref: wealth_event/1
+    value:
+      kind: date
+      value: '2022-09-02'
+    spans:
+    - utt_id: u-05
+      start: 50
+      end: 92
+      quote: the second of September, twenty twenty-two
+  - field: wealth_event.amount
+    subject_ref: wealth_event/1
+    value:
+      kind: money
+      amount: '1250000'
+      currency: CHF
+    spans:
+    - utt_id: u-05
+      start: 127
+      end: 166
+      quote: one point two five million Swiss francs
+  - field: wealth_event.counterparty
+    subject_ref: wealth_event/1
+    value:
+      kind: text
+      value: Valdoria Holdings S.A.
+    spans:
+    - utt_id: u-05
+      start: 24
+      end: 46
+      quote: Valdoria Holdings S.A.
+    derivation: the stake sold was in the client's own company
+  - field: wealth_event.ownership_pct
+    subject_ref: wealth_event/1
+    value:
+      kind: percent
+      value: '40'
+    spans:
+    - utt_id: u-05
+      start: 103
+      end: 122
+      quote: forty percent stake
+  - field: wealth_event.type
+    subject_ref: wealth_event/2
+    value:
+      kind: text
+      value: dividends
+    spans:
+    - utt_id: u-07
+      start: 42
+      end: 51
+      quote: dividends
+  - field: wealth_event.amount
+    subject_ref: wealth_event/2
+    value:
+      kind: money
+      amount: '2400000'
+      currency: EUR
+    spans:
+    - utt_id: u-07
+      start: 55
+      end: 126
+      quote: three point four million euros, no, sorry, two point four million euros
+    - utt_id: u-08
+      start: 0
+      end: 27
+      quote: It was two point four, yes.
+    derivation: 'self-correction: the second figure stands, confirmed by the accountant and the recap'
+  - field: structure.type
+    subject_ref: structure/1
+    value:
+      kind: text
+      value: company
+    spans:
+    - utt_id: u-05
+      start: 12
+      end: 22
+      quote: my company
+  - field: structure.name
+    subject_ref: structure/1
+    value:
+      kind: text
+      value: Valdoria Holdings S.A.
+    spans:
+    - utt_id: u-05
+      start: 24
+      end: 46
+      quote: Valdoria Holdings S.A.
+  - field: asset.type
+    subject_ref: asset/1
+    value:
+      kind: text
+      value: brokerage_account
+    spans:
+    - utt_id: u-10
+      start: 0
+      end: 19
+      quote: A brokerage account
+  - field: asset.value
+    subject_ref: asset/1
+    value:
+      kind: money
+      amount: '780000'
+      currency: USD
+    spans:
+    - utt_id: u-10
+      start: 25
+      end: 62
+      quote: seven hundred eighty thousand dollars
+  - field: structure.type
+    subject_ref: structure/2
+    value:
+      kind: text
+      value: foundation
+    spans:
+    - utt_id: u-10
+      start: 68
+      end: 80
+      quote: a foundation
+  - field: structure.jurisdiction
+    subject_ref: structure/2
+    value:
+      kind: country
+      iso2: LI
+    spans:
+    - utt_id: u-10
+      start: 84
+      end: 97
+      quote: Liechtenstein
+  - field: structure.established
+    subject_ref: structure/2
+    value:
+      kind: date
+      value: '2021-04-03'
+    spans:
+    - utt_id: u-10
+      start: 117
+      end: 154
+      quote: the third of April, twenty twenty-one
+  - field: income.source
+    subject_ref: income/1
+    value:
+      kind: text
+      value: consulting
+    spans:
+    - utt_id: u-12
+      start: 0
+      end: 10
+      quote: Consulting
+  - field: income.amount
+    subject_ref: income/1
+    value:
+      kind: money
+      amount: '95000'
+      currency: CHF
+      period: per_year
+    spans:
+    - utt_id: u-12
+      start: 12
+      end: 58
+      quote: About ninety-five thousand Swiss francs a year
+    derivation: '''about'' kept as the stated figure'
+  - field: liability.type
+    subject_ref: liability/1
+    value:
+      kind: text
+      value: mortgage
+    spans:
+    - utt_id: u-14
+      start: 0
+      end: 10
+      quote: A mortgage
+  - field: liability.rate
+    subject_ref: liability/1
+    value:
+      kind: percent
+      value: '4.25'
+    spans:
+    - utt_id: u-14
+      start: 14
+      end: 40
+      quote: four and a quarter percent
+  gaps:
+  - identity.date_of_birth
+  - identity.tax_residence
+  - wealth_event.date@wealth_event/2
+  - pep.none_declared
+  - expected.initial_funding_source
+  - expected.initial_funding_amount
+  contradictions: []
+  bounce_reasons:
+  - BR-ID-DOB
+  - BR-EDD-ASSET-VEHICLE
+traps:
+- kind: extraction_trap
+  note: 'self-corrected dividend: 3.4M must not be extracted; 2.4M stands'
+  refs:
+  - u-07
+  - u-08
+  - u-15
+- kind: extraction_trap
+  note: relative date 'three years ago in June' must keep its words and resolve against the meeting date
+  refs:
+  - u-12
+- kind: missing_required
+  note: no date of birth anywhere
+  refs:
+  - identity.date_of_birth
+seeded_drafts:
+- draft_id: C01-S1
+  field: wealth_event.amount
+  subject_ref: wealth_event/2
+  wrong_value:
+    kind: money
+    amount: '3400000'
+    currency: EUR
