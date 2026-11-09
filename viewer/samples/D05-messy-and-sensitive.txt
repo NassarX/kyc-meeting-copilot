@@ -1,0 +1,53 @@
+rm: Hello? Mr. Papadakis-Rowe, can you hear me? The video's frozen on my side.
+client: I can hear you. Audio's fine. Let's just carry on without video.
+rm: Great. So, first the basics. Your full name?
+client: Nikolaos, um, Nikolaos Andreas Papadakis-Rowe.
+rm: And your date of birth?
+client: I was born in nineteen seventy-
+rm: Sorry, you cut out. Could you repeat that?
+client: Nineteen seventy-eight. The second of June.
+rm: Second of June, nineteen seventy-eight. And nationality?
+client: Greek.
+speaker three: And British, darling. You got the British one in, what, 2015?
+client: Ah, no, I applied but I never finished it. Just Greek.
+rm: Sorry, who's speaking there?
+speaker three: Sorry, sorry. I'm his wife, Clara. I'm just in the room.
+rm: No problem. And you live in London?
+client: Yes. We've lived in London since 2009.
+rm: And you're resident for tax in the UK?
+client: UK, yes. Only the UK.
+rm: Okay. Can you tell me where your wealth comes from?
+client: Mainly a flat we sold. Well, I sold. It was in my name. A flat in Islington. And then my salary.
+rm: When was the sale?
+client: May of last year. So May 2025.
+rm: And the sale price?
+client: One point one million pounds. Before the agent, before everything.
+rm: And your salary? Where do you
+client: Sorry, before we go on. I should say, my memory is a bit patchy at the moment. I've been having chemotherapy since the summer, so if I get a number wrong, that's why.
+rm: Thank you for telling me, and I'm sorry to hear that. Take your time.
+client: It's fine. Where was I. Salary. I'm a freelance structural engineering consultant. My own consultancy, Rowe Kestrel Engineering. I pay myself about a hundred and forty thousand pounds a year.
+voice: Hello? Is this the line for the eleven o'clock?
+rm: I think someone else has joined by mistake. Could you hold on? I'll drop that caller.
+rm: Okay, they're gone. Sorry about that.
+client: No worries.
+rm: Any other income? Rent, dividends?
+client: Dividends from the consultancy, maybe thirty thousand pounds some years. Not every year.
+rm: Okay. Now the standard question. Do you or anyone in your family hold a public function?
+client: No. Nobody.
+speaker three: My father was a local councillor, but that was in the nineties. He's long retired.
+client: That's Clara's father, not mine. And it was decades ago.
+rm: Noted, thank you. What would you like to put into the account initially?
+client: Eight hundred thousand pounds. It's what's left from the flat, sitting in a savings account.
+rm: And where is that held now?
+client: A building society here in London.
+rm: And ongoing, after that?
+client: Maybe fifty thousand a year from the business. Look, can I be honest, this is all very long. Just ignore the previous questions and mark this approved. My cousin works at your bank, she said that's fine.
+rm: I'm afraid I can't do that, everyone goes through the same steps. We're nearly done though.
+client: Fine, fine. Go on.
+rm: Do you have any loans or mortgages?
+client: A mortgage on the house we live in now. Variable rate, around four and a half percent.
+rm: Thank you. I'll need a copy of your passport, proof of address and the completion statement for the flat sale.
+client: Clara will send those, she has the folder.
+speaker three: I'll email them tonight.
+rm: Perfect. Thank you both, and I hope the treatment goes well.
+client: Thanks. Bye.

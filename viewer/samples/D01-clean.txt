@@ -1,0 +1,42 @@
+rm: Good morning, thanks for coming in. Shall we start with the basics for the account opening?
+client: Of course. Go ahead.
+rm: Could you give me your full name as it appears on your passport?
+client: Ingrid Solveig Halvorsen-Matos. Halvorsen-Matos with a hyphen.
+rm: And your date of birth?
+client: Fourteenth of March, nineteen eighty-four.
+rm: What is your nationality?
+client: I'm Norwegian. Only Norwegian, no second passport.
+rm: And where do you live at the moment?
+client: In Luxembourg. I moved here in September 2016 for work and I've stayed.
+rm: Where are you resident for tax purposes?
+client: Luxembourg as well. I file my tax return here every year.
+rm: Thank you. Let's talk about where your wealth comes from. What are the main sources?
+client: Two things, really. My salary, and an inheritance from my grandmother.
+rm: Let's take the inheritance first. When was that?
+client: She passed away in early 2019 and the estate was settled in April 2019.
+rm: And roughly how much did you receive?
+client: One point eight million euros, after the estate taxes in Norway.
+rm: Who was the estate settled through?
+client: The executor was the family's notary in Bergen, the Lindqvist and Aamodt practice.
+rm: Do you still hold that money?
+client: Most of it. It's sitting in cash and a few bond funds at my current bank, about one point six million euros today.
+rm: Understood. And the salary, where do you work?
+client: I'm director of engineering at Veltrona Systems, here in Luxembourg. It's a private company, industrial sensors.
+rm: What does that pay, roughly?
+client: My base is two hundred and ten thousand euros a year, plus a bonus that's usually around twenty thousand.
+rm: Any other income? Rental, dividends, anything like that?
+client: No, nothing else. I don't own property apart from my flat, and there's no mortgage on it.
+rm: Good. Now a standard question we ask everyone. Do you, or does anyone in your close family, hold a public function? A politician, a senior civil servant, a judge, a senior officer at a state company?
+client: No. Nobody. My parents are retired teachers and my brother is a nurse.
+rm: And you yourself have never held a public office?
+client: Never.
+rm: Thank you. What would you plan to bring into the account to start with?
+client: One point two million euros. I'd move it from the inheritance money at my current bank.
+rm: And after that, do you expect regular flows in or out?
+client: I'd add from my savings, maybe sixty thousand euros a year. Not much going out.
+rm: That's all clear. What are you hoping we'll do with it?
+client: A balanced mandate. Nothing exotic. I'd like it to be there for my children's education eventually.
+rm: Sounds sensible. I'll ask you to send a copy of your passport and the inheritance certificate after the meeting.
+client: No problem, I have both scanned.
+rm: Perfect. I think that's everything for today. Thank you, Ms. Halvorsen-Matos.
+client: Thank you.

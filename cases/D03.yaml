@@ -1,0 +1,574 @@
+# D03: synthetic demo meeting, written for kyc-meeting-copilot. No real people or companies.
+# Built by cases/generators/make_samples.py from viewer/samples/; span offsets are computed, not typed.
+case_id: D03
+title: A Jersey company under a Liechtenstein foundation; date of birth never said (synthetic demo D03)
+origin: author
+as_of_date: '2026-11-09'
+lead:
+  lead_ref: lead-d03
+  rm_id: rm.alice
+transcript:
+  meeting_date: '2026-11-09'
+  utterances:
+  - utt_id: u-01
+    speaker: rm
+    text: Hello, can you both hear me? I think we have everyone now.
+  - utt_id: u-02
+    speaker: client
+    text: Yes, I'm here. And my accountant is dialling in from Vaduz.
+  - utt_id: u-03
+    speaker: accountant
+    text: Good afternoon, Henrike Valtersson here. I look after the family structures.
+  - utt_id: u-04
+    speaker: rm
+    text: Welcome. Mr. Bastien-Nakamura, let's start with you. Your full name, please.
+  - utt_id: u-05
+    speaker: client
+    text: Aurelio Kenji Bastien-Nakamura.
+  - utt_id: u-06
+    speaker: rm
+    text: Your nationality?
+  - utt_id: u-07
+    speaker: client
+    text: Canadian.
+  - utt_id: u-08
+    speaker: rm
+    text: And where do you live?
+  - utt_id: u-09
+    speaker: client
+    text: Dubai. I've been in the UAE since March 2020.
+  - utt_id: u-10
+    speaker: rm
+    text: And where are you resident for tax?
+  - utt_id: u-11
+    speaker: client
+    text: The UAE as well. I gave up my Canadian tax residence when I moved, that was all done properly.
+  - utt_id: u-12
+    speaker: accountant
+    text: We have the departure filing on record, if the bank needs it.
+  - utt_id: u-13
+    speaker: rm
+    text: Thank you. Now, the source of wealth. Can you walk me through it?
+  - utt_id: u-14
+    speaker: client
+    text: I co-founded a freight logistics company, Corvalis Freight. I held thirty-five percent. We sold the whole company
+      to a private equity buyer in October 2022.
+  - utt_id: u-15
+    speaker: rm
+    text: And your share of the sale?
+  - utt_id: u-16
+    speaker: client
+    text: Fourteen million euros, roughly. Fourteen point one, I think.
+  - utt_id: u-17
+    speaker: accountant
+    text: Fourteen point one million, yes, I have the completion statement here.
+  - utt_id: u-18
+    speaker: rm
+    text: Who was the buyer?
+  - utt_id: u-19
+    speaker: client
+    text: Marlowe Ridge Capital, a fund based in London.
+  - utt_id: u-20
+    speaker: rm
+    text: Did the proceeds come to you personally?
+  - utt_id: u-21
+    speaker: accountant
+    text: No. Not personally. The shares were held through Tessaro Holdings Limited, a Jersey company, so the proceeds went
+      to Tessaro.
+  - utt_id: u-22
+    speaker: rm
+    text: And who owns Tessaro Holdings?
+  - utt_id: u-23
+    speaker: accountant
+    text: Tessaro is one hundred percent owned by the Alvermont Foundation, a Liechtenstein foundation.
+  - utt_id: u-24
+    speaker: rm
+    text: So the foundation is the legal owner of the company. Who is the beneficial owner?
+  - utt_id: u-25
+    speaker: accountant
+    text: Mr. Bastien-Nakamura is the founder and the first beneficiary of the foundation. His two children are second beneficiaries.
+  - utt_id: u-26
+    speaker: client
+    text: So in the end it's me. The foundation is just the wrapper.
+  - utt_id: u-27
+    speaker: rm
+    text: When was the foundation set up?
+  - utt_id: u-28
+    speaker: accountant
+    text: The Alvermont Foundation was established in June 2019. Tessaro was incorporated earlier, in 2014.
+  - utt_id: u-29
+    speaker: rm
+    text: Thank you. Does the foundation hold anything besides Tessaro?
+  - utt_id: u-30
+    speaker: accountant
+    text: An apartment in Lisbon, worth about one point nine million euros, held directly by the foundation.
+  - utt_id: u-31
+    speaker: rm
+    text: And what assets sit in Tessaro now?
+  - utt_id: u-32
+    speaker: accountant
+    text: Mostly cash and a bond portfolio, about eleven million euros, at a private bank in Vaduz.
+  - utt_id: u-33
+    speaker: rm
+    text: Mr. Bastien-Nakamura, do you have personal income apart from the structure?
+  - utt_id: u-34
+    speaker: client
+    text: I take a dividend from Tessaro, around four hundred thousand euros a year. And I have a board seat at a shipping
+      start-up, small, maybe thirty thousand a year.
+  - utt_id: u-35
+    speaker: rm
+    text: 'Okay. The standard question: do you or anyone in your family hold a public function?'
+  - utt_id: u-36
+    speaker: client
+    text: No. None of us. My wife is an architect and the children are at school.
+  - utt_id: u-37
+    speaker: rm
+    text: Thank you. What's the plan for the relationship with us?
+  - utt_id: u-38
+    speaker: client
+    text: We'd move part of the Tessaro portfolio. Six million euros to start, coming from Tessaro's account in Vaduz.
+  - utt_id: u-39
+    speaker: accountant
+    text: The account would be opened for Tessaro, with Mr. Bastien-Nakamura declared as beneficial owner.
+  - utt_id: u-40
+    speaker: rm
+    text: Understood. Expected flows after that?
+  - utt_id: u-41
+    speaker: accountant
+    text: Small. The dividend out to him once a year, maybe some coupons in.
+  - utt_id: u-42
+    speaker: rm
+    text: I'll need the foundation deed, the Tessaro register extract and the shareholder register, plus the sale agreement.
+  - utt_id: u-43
+    speaker: accountant
+    text: I can send all of those by Friday.
+  - utt_id: u-44
+    speaker: client
+    text: And my passport, I assume.
+  - utt_id: u-45
+    speaker: rm
+    text: Yes, a copy of your passport too. I think that covers it. Thank you both.
+  - utt_id: u-46
+    speaker: accountant
+    text: Thank you.
+  - utt_id: u-47
+    speaker: client
+    text: Thanks, speak soon.
+dossier: []
+checklist:
+- item_id: chk-01
+  document_type: passport
+  present: false
+- item_id: chk-02
+  document_type: trust_deed
+  present: false
+- item_id: chk-03
+  document_type: company_register_extract
+  present: false
+- item_id: chk-04
+  document_type: shareholder_register
+  present: false
+- item_id: chk-05
+  document_type: sale_agreement
+  present: false
+gold:
+  facts:
+  - field: identity.full_name
+    value:
+      kind: text
+      value: Aurelio Kenji Bastien-Nakamura
+    spans:
+    - utt_id: u-05
+      start: 0
+      end: 30
+      quote: Aurelio Kenji Bastien-Nakamura
+  - field: identity.nationality
+    value:
+      kind: country
+      iso2: CA
+    spans:
+    - utt_id: u-07
+      start: 0
+      end: 8
+      quote: Canadian
+  - field: identity.residence_country
+    value:
+      kind: country
+      iso2: AE
+    spans:
+    - utt_id: u-09
+      start: 0
+      end: 5
+      quote: Dubai
+  - field: identity.residence_since
+    value:
+      kind: date
+      value: '2020-03-01'
+      precision: month
+    spans:
+    - utt_id: u-09
+      start: 28
+      end: 44
+      quote: since March 2020
+  - field: identity.tax_residence
+    value:
+      kind: country
+      iso2: AE
+    spans:
+    - utt_id: u-11
+      start: 0
+      end: 15
+      quote: The UAE as well
+  - field: relationship.person_present
+    subject_ref: relationship/1
+    value:
+      kind: text
+      value: Henrike Valtersson
+    spans:
+    - utt_id: u-03
+      start: 16
+      end: 34
+      quote: Henrike Valtersson
+  - field: relationship.role
+    subject_ref: relationship/1
+    value:
+      kind: text
+      value: accountant
+    spans:
+    - utt_id: u-02
+      start: 19
+      end: 32
+      quote: my accountant
+  - field: wealth_event.type
+    subject_ref: wealth_event/1
+    value:
+      kind: text
+      value: business_sale
+    spans:
+    - utt_id: u-14
+      start: 88
+      end: 113
+      quote: We sold the whole company
+  - field: wealth_event.ownership_pct
+    subject_ref: wealth_event/1
+    value:
+      kind: percent
+      value: '35'
+    spans:
+    - utt_id: u-14
+      start: 60
+      end: 86
+      quote: I held thirty-five percent
+  - field: wealth_event.date
+    subject_ref: wealth_event/1
+    value:
+      kind: date
+      value: '2022-10-01'
+      precision: month
+    spans:
+    - utt_id: u-14
+      start: 140
+      end: 155
+      quote: in October 2022
+  - field: wealth_event.amount
+    subject_ref: wealth_event/1
+    value:
+      kind: money
+      amount: '14100000'
+      currency: EUR
+    spans:
+    - utt_id: u-16
+      start: 33
+      end: 60
+      quote: Fourteen point one, I think
+    - utt_id: u-17
+      start: 0
+      end: 31
+      quote: Fourteen point one million, yes
+    derivation: the client's rough fourteen is refined to 14.1M, confirmed from the completion statement
+  - field: wealth_event.counterparty
+    subject_ref: wealth_event/1
+    value:
+      kind: text
+      value: Marlowe Ridge Capital
+    spans:
+    - utt_id: u-19
+      start: 0
+      end: 21
+      quote: Marlowe Ridge Capital
+    derivation: the buyer
+  - field: structure.type
+    subject_ref: structure/1
+    value:
+      kind: text
+      value: company
+    spans:
+    - utt_id: u-21
+      start: 75
+      end: 91
+      quote: a Jersey company
+  - field: structure.name
+    subject_ref: structure/1
+    value:
+      kind: text
+      value: Tessaro Holdings Limited
+    spans:
+    - utt_id: u-21
+      start: 49
+      end: 73
+      quote: Tessaro Holdings Limited
+  - field: structure.jurisdiction
+    subject_ref: structure/1
+    value:
+      kind: country
+      iso2: JE
+    spans:
+    - utt_id: u-21
+      start: 75
+      end: 91
+      quote: a Jersey company
+  - field: structure.established
+    subject_ref: structure/1
+    value:
+      kind: date
+      value: '2014-01-01'
+      precision: year
+    spans:
+    - utt_id: u-28
+      start: 55
+      end: 96
+      quote: Tessaro was incorporated earlier, in 2014
+  - field: structure.beneficial_owner
+    subject_ref: structure/1
+    value:
+      kind: text
+      value: Aurelio Kenji Bastien-Nakamura
+    spans:
+    - utt_id: u-39
+      start: 46
+      end: 95
+      quote: Mr. Bastien-Nakamura declared as beneficial owner
+    derivation: the foundation is the legal owner; the client is the beneficial owner
+  - field: structure.type
+    subject_ref: structure/2
+    value:
+      kind: text
+      value: foundation
+    spans:
+    - utt_id: u-23
+      start: 66
+      end: 92
+      quote: a Liechtenstein foundation
+  - field: structure.name
+    subject_ref: structure/2
+    value:
+      kind: text
+      value: Alvermont Foundation
+    spans:
+    - utt_id: u-23
+      start: 40
+      end: 64
+      quote: the Alvermont Foundation
+  - field: structure.jurisdiction
+    subject_ref: structure/2
+    value:
+      kind: country
+      iso2: LI
+    spans:
+    - utt_id: u-23
+      start: 66
+      end: 92
+      quote: a Liechtenstein foundation
+  - field: structure.established
+    subject_ref: structure/2
+    value:
+      kind: date
+      value: '2019-06-01'
+      precision: month
+    spans:
+    - utt_id: u-28
+      start: 29
+      end: 53
+      quote: established in June 2019
+  - field: structure.beneficial_owner
+    subject_ref: structure/2
+    value:
+      kind: text
+      value: Aurelio Kenji Bastien-Nakamura
+    spans:
+    - utt_id: u-25
+      start: 0
+      end: 79
+      quote: Mr. Bastien-Nakamura is the founder and the first beneficiary of the foundation
+  - field: asset.type
+    subject_ref: asset/1
+    value:
+      kind: text
+      value: real_estate
+    spans:
+    - utt_id: u-30
+      start: 0
+      end: 22
+      quote: An apartment in Lisbon
+  - field: asset.location
+    subject_ref: asset/1
+    value:
+      kind: country
+      iso2: PT
+    spans:
+    - utt_id: u-30
+      start: 16
+      end: 22
+      quote: Lisbon
+  - field: asset.value
+    subject_ref: asset/1
+    value:
+      kind: money
+      amount: '1900000'
+      currency: EUR
+    spans:
+    - utt_id: u-30
+      start: 24
+      end: 64
+      quote: worth about one point nine million euros
+  - field: asset.type
+    subject_ref: asset/2
+    value:
+      kind: text
+      value: cash
+    spans:
+    - utt_id: u-32
+      start: 0
+      end: 32
+      quote: Mostly cash and a bond portfolio
+    derivation: mixed holding; cash is named first
+  - field: asset.value
+    subject_ref: asset/2
+    value:
+      kind: money
+      amount: '11000000'
+      currency: EUR
+    spans:
+    - utt_id: u-32
+      start: 34
+      end: 60
+      quote: about eleven million euros
+  - field: asset.custodian
+    subject_ref: asset/2
+    value:
+      kind: text
+      value: a private bank in Vaduz
+    spans:
+    - utt_id: u-32
+      start: 65
+      end: 88
+      quote: a private bank in Vaduz
+  - field: asset.location
+    subject_ref: asset/2
+    value:
+      kind: country
+      iso2: LI
+    spans:
+    - utt_id: u-32
+      start: 83
+      end: 88
+      quote: Vaduz
+  - field: income.source
+    subject_ref: income/1
+    value:
+      kind: text
+      value: dividend from Tessaro Holdings
+    spans:
+    - utt_id: u-34
+      start: 0
+      end: 30
+      quote: I take a dividend from Tessaro
+  - field: income.amount
+    subject_ref: income/1
+    value:
+      kind: money
+      amount: '400000'
+      currency: EUR
+      period: per_year
+    spans:
+    - utt_id: u-34
+      start: 32
+      end: 73
+      quote: around four hundred thousand euros a year
+  - field: income.source
+    subject_ref: income/2
+    value:
+      kind: text
+      value: board seat at a shipping start-up
+    spans:
+    - utt_id: u-34
+      start: 86
+      end: 121
+      quote: a board seat at a shipping start-up
+  - field: income.amount
+    subject_ref: income/2
+    value:
+      kind: money
+      amount: '30000'
+      currency: EUR
+      period: per_year
+    spans:
+    - utt_id: u-34
+      start: 130
+      end: 158
+      quote: maybe thirty thousand a year
+  - field: pep.none_declared
+    value:
+      kind: bool
+      value: true
+    spans:
+    - utt_id: u-36
+      start: 0
+      end: 15
+      quote: No. None of us.
+  - field: expected.initial_funding_amount
+    value:
+      kind: money
+      amount: '6000000'
+      currency: EUR
+    spans:
+    - utt_id: u-38
+      start: 41
+      end: 67
+      quote: Six million euros to start
+  - field: expected.initial_funding_source
+    value:
+      kind: text
+      value: Tessaro portfolio account in Vaduz
+    spans:
+    - utt_id: u-38
+      start: 69
+      end: 107
+      quote: coming from Tessaro's account in Vaduz
+  gaps:
+  - identity.date_of_birth
+  contradictions: []
+  bounce_reasons:
+  - BR-ID-DOB
+  - BR-DOC-ID-MISSING
+  - BR-EDD-LARGE-FUNDING
+  - BR-EDD-ASSET-VEHICLE
+  - BR-EDD-SOW-UNCORROBORATED
+traps:
+- kind: missing_required
+  note: no date of birth anywhere
+  refs:
+  - identity.date_of_birth
+- kind: extraction_trap
+  note: legal owner (the foundation) vs beneficial owner (the client)
+  refs:
+  - u-23
+  - u-24
+  - u-25
+  - u-39
+- kind: extraction_trap
+  note: most structure facts come from the accountant, not the client
+  refs:
+  - u-21
+  - u-23
+  - u-28

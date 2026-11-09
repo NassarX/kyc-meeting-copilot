@@ -1,0 +1,445 @@
+# D04: synthetic demo meeting, written for kyc-meeting-copilot. No real people or companies.
+# Built by cases/generators/make_samples.py from viewer/samples/; span offsets are computed, not typed.
+case_id: D04
+title: Funding larger than the stated wealth, and a sale dated in the future (synthetic demo D04)
+origin: author
+as_of_date: '2026-11-09'
+lead:
+  lead_ref: lead-d04
+  rm_id: rm.alice
+transcript:
+  meeting_date: '2026-11-09'
+  utterances:
+  - utt_id: u-01
+    speaker: rm
+    text: Good afternoon, Dr. Moreira Lindgren. Thank you for coming to Zurich. Shall we go through the account opening?
+  - utt_id: u-02
+    speaker: client
+    text: Yes, of course. I've blocked the afternoon.
+  - utt_id: u-03
+    speaker: rm
+    text: Your full name, please.
+  - utt_id: u-04
+    speaker: client
+    text: Beatriz Helena Moreira Lindgren.
+  - utt_id: u-05
+    speaker: rm
+    text: Date of birth?
+  - utt_id: u-06
+    speaker: client
+    text: The ninth of August, nineteen seventy-one.
+  - utt_id: u-07
+    speaker: rm
+    text: And your nationality?
+  - utt_id: u-08
+    speaker: client
+    text: Brazilian. I have a Swiss C permit but not the passport.
+  - utt_id: u-09
+    speaker: rm
+    text: So you live in Switzerland?
+  - utt_id: u-10
+    speaker: client
+    text: Yes, in Zug. Since 2008.
+  - utt_id: u-11
+    speaker: rm
+    text: And your tax residence?
+  - utt_id: u-12
+    speaker: client
+    text: Switzerland. Canton of Zug.
+  - utt_id: u-13
+    speaker: rm
+    text: Thank you. Where does your wealth come from?
+  - utt_id: u-14
+    speaker: client
+    text: I built up a chain of dental clinics, four clinics in central Switzerland, Clínica Serrana Dental. I sold it.
+  - utt_id: u-15
+    speaker: rm
+    text: When did that sale complete?
+  - utt_id: u-16
+    speaker: client
+    text: In February. February twenty twenty-seven. The closing was on the twelfth.
+  - utt_id: u-17
+    speaker: rm
+    text: And the price for your share?
+  - utt_id: u-18
+    speaker: client
+    text: I owned all of it. It went for three, no, sorry, two point four million Swiss francs. Two point four. The three
+      was the first offer.
+  - utt_id: u-19
+    speaker: rm
+    text: Who bought it?
+  - utt_id: u-20
+    speaker: client
+    text: A dental group from Basel, Orvana Praxisgruppe.
+  - utt_id: u-21
+    speaker: rm
+    text: Understood. Any other assets?
+  - utt_id: u-22
+    speaker: client
+    text: I have a brokerage account at another bank. About six hundred thousand francs in shares.
+  - utt_id: u-23
+    speaker: rm
+    text: And property?
+  - utt_id: u-24
+    speaker: client
+    text: The house in Zug, but there's a mortgage on it, so I wouldn't count it.
+  - utt_id: u-25
+    speaker: rm
+    text: What rate is the mortgage, roughly?
+  - utt_id: u-26
+    speaker: client
+    text: One point four percent, fixed for ten years.
+  - utt_id: u-27
+    speaker: rm
+    text: And current income, since the sale?
+  - utt_id: u-28
+    speaker: client
+    text: I still consult for the buyer, two days a week. One hundred and eighty thousand francs a year.
+  - utt_id: u-29
+    speaker: rm
+    text: Any other income?
+  - utt_id: u-30
+    speaker: client
+    text: Some dividends from the brokerage account, small. Maybe fifteen thousand a year.
+  - utt_id: u-31
+    speaker: rm
+    text: Okay. The standard question. Do you or any family member hold a public function?
+  - utt_id: u-32
+    speaker: client
+    text: No. My husband is a dentist too. No politics anywhere.
+  - utt_id: u-33
+    speaker: rm
+    text: Thank you. Now, what would you like to bring into the account initially?
+  - utt_id: u-34
+    speaker: client
+    text: I was thinking four and a half million francs.
+  - utt_id: u-35
+    speaker: rm
+    text: Four point five million Swiss francs?
+  - utt_id: u-36
+    speaker: client
+    text: Yes. Four point five. To start with.
+  - utt_id: u-37
+    speaker: rm
+    text: Where would that come from?
+  - utt_id: u-38
+    speaker: client
+    text: From the sale proceeds and the brokerage account. I'd move both over.
+  - utt_id: u-39
+    speaker: rm
+    text: 'Okay. Just so I have the picture: sale proceeds of two point four million and a brokerage account of around six
+      hundred thousand?'
+  - utt_id: u-40
+    speaker: client
+    text: Yes, that's right.
+  - utt_id: u-41
+    speaker: rm
+    text: Any ongoing flows after the initial funding?
+  - utt_id: u-42
+    speaker: client
+    text: I'd add from the consulting income, maybe a hundred thousand a year.
+  - utt_id: u-43
+    speaker: rm
+    text: Fine. I'll need the sale agreement, your residence permit and a passport copy.
+  - utt_id: u-44
+    speaker: client
+    text: I'll send them.
+  - utt_id: u-45
+    speaker: rm
+    text: Thank you. That's all for today.
+  - utt_id: u-46
+    speaker: client
+    text: Thank you.
+dossier: []
+checklist:
+- item_id: chk-01
+  document_type: passport
+  present: false
+- item_id: chk-02
+  document_type: residence_permit
+  present: false
+- item_id: chk-03
+  document_type: sale_agreement
+  present: false
+gold:
+  facts:
+  - field: identity.full_name
+    value:
+      kind: text
+      value: Beatriz Helena Moreira Lindgren
+    spans:
+    - utt_id: u-04
+      start: 0
+      end: 31
+      quote: Beatriz Helena Moreira Lindgren
+  - field: identity.date_of_birth
+    value:
+      kind: date
+      value: '1971-08-09'
+    spans:
+    - utt_id: u-06
+      start: 0
+      end: 41
+      quote: The ninth of August, nineteen seventy-one
+  - field: identity.nationality
+    value:
+      kind: country
+      iso2: BR
+    spans:
+    - utt_id: u-08
+      start: 0
+      end: 9
+      quote: Brazilian
+  - field: identity.residence_country
+    value:
+      kind: country
+      iso2: CH
+    spans:
+    - utt_id: u-10
+      start: 5
+      end: 11
+      quote: in Zug
+  - field: identity.residence_since
+    value:
+      kind: date
+      value: '2008-01-01'
+      precision: year
+    spans:
+    - utt_id: u-10
+      start: 13
+      end: 23
+      quote: Since 2008
+  - field: identity.tax_residence
+    value:
+      kind: country
+      iso2: CH
+    spans:
+    - utt_id: u-12
+      start: 0
+      end: 27
+      quote: Switzerland. Canton of Zug.
+  - field: wealth_event.type
+    subject_ref: wealth_event/1
+    value:
+      kind: text
+      value: business_sale
+    spans:
+    - utt_id: u-14
+      start: 99
+      end: 108
+      quote: I sold it
+  - field: wealth_event.date
+    subject_ref: wealth_event/1
+    value:
+      kind: date
+      value: '2027-02-12'
+    spans:
+    - utt_id: u-16
+      start: 13
+      end: 41
+      quote: February twenty twenty-seven
+    - utt_id: u-16
+      start: 43
+      end: 73
+      quote: The closing was on the twelfth
+    derivation: as stated; after the meeting date, so a plausibility doubt is expected
+  - field: wealth_event.amount
+    subject_ref: wealth_event/1
+    value:
+      kind: money
+      amount: '2400000'
+      currency: CHF
+    spans:
+    - utt_id: u-18
+      start: 49
+      end: 84
+      quote: two point four million Swiss francs
+    derivation: 'self-correction: three was the first offer; 2.4M stands'
+  - field: wealth_event.ownership_pct
+    subject_ref: wealth_event/1
+    value:
+      kind: percent
+      value: '100'
+    spans:
+    - utt_id: u-18
+      start: 0
+      end: 17
+      quote: I owned all of it
+  - field: wealth_event.counterparty
+    subject_ref: wealth_event/1
+    value:
+      kind: text
+      value: Orvana Praxisgruppe
+    spans:
+    - utt_id: u-20
+      start: 27
+      end: 46
+      quote: Orvana Praxisgruppe
+    derivation: the buyer
+  - field: asset.type
+    subject_ref: asset/1
+    value:
+      kind: text
+      value: brokerage_account
+    spans:
+    - utt_id: u-22
+      start: 7
+      end: 42
+      quote: a brokerage account at another bank
+  - field: asset.value
+    subject_ref: asset/1
+    value:
+      kind: money
+      amount: '600000'
+      currency: CHF
+    spans:
+    - utt_id: u-22
+      start: 44
+      end: 77
+      quote: About six hundred thousand francs
+  - field: asset.type
+    subject_ref: asset/2
+    value:
+      kind: text
+      value: real_estate
+    spans:
+    - utt_id: u-24
+      start: 0
+      end: 16
+      quote: The house in Zug
+  - field: asset.location
+    subject_ref: asset/2
+    value:
+      kind: country
+      iso2: CH
+    spans:
+    - utt_id: u-24
+      start: 0
+      end: 16
+      quote: The house in Zug
+  - field: liability.type
+    subject_ref: liability/1
+    value:
+      kind: text
+      value: mortgage
+    spans:
+    - utt_id: u-24
+      start: 22
+      end: 46
+      quote: there's a mortgage on it
+  - field: liability.rate
+    subject_ref: liability/1
+    value:
+      kind: percent
+      value: '1.4'
+    spans:
+    - utt_id: u-26
+      start: 0
+      end: 22
+      quote: One point four percent
+  - field: income.source
+    subject_ref: income/1
+    value:
+      kind: text
+      value: consulting for the buyer
+    spans:
+    - utt_id: u-28
+      start: 0
+      end: 29
+      quote: I still consult for the buyer
+  - field: income.amount
+    subject_ref: income/1
+    value:
+      kind: money
+      amount: '180000'
+      currency: CHF
+      period: per_year
+    spans:
+    - utt_id: u-28
+      start: 48
+      end: 93
+      quote: One hundred and eighty thousand francs a year
+  - field: income.source
+    subject_ref: income/2
+    value:
+      kind: text
+      value: dividends from the brokerage account
+    spans:
+    - utt_id: u-30
+      start: 0
+      end: 41
+      quote: Some dividends from the brokerage account
+  - field: income.amount
+    subject_ref: income/2
+    value:
+      kind: money
+      amount: '15000'
+      currency: CHF
+      period: per_year
+    spans:
+    - utt_id: u-30
+      start: 50
+      end: 79
+      quote: Maybe fifteen thousand a year
+  - field: pep.none_declared
+    value:
+      kind: bool
+      value: true
+    spans:
+    - utt_id: u-32
+      start: 33
+      end: 53
+      quote: No politics anywhere
+  - field: expected.initial_funding_amount
+    value:
+      kind: money
+      amount: '4500000'
+      currency: CHF
+    spans:
+    - utt_id: u-34
+      start: 15
+      end: 45
+      quote: four and a half million francs
+    - utt_id: u-36
+      start: 5
+      end: 20
+      quote: Four point five
+    derivation: as stated; larger than every stated source and asset in CHF, so a plausibility doubt is expected
+  - field: expected.initial_funding_source
+    value:
+      kind: text
+      value: sale proceeds and the brokerage account
+    spans:
+    - utt_id: u-38
+      start: 0
+      end: 48
+      quote: From the sale proceeds and the brokerage account
+  - field: expected.annual_flows
+    value:
+      kind: money
+      amount: '100000'
+      currency: CHF
+      period: per_year
+    spans:
+    - utt_id: u-42
+      start: 36
+      end: 67
+      quote: maybe a hundred thousand a year
+  gaps: []
+  contradictions: []
+  bounce_reasons:
+  - BR-DOC-ID-MISSING
+traps:
+- kind: extraction_trap
+  note: 'plausibility: CHF 4.5M funding against CHF 3.0M of stated wealth'
+  refs:
+  - u-34
+  - u-39
+- kind: extraction_trap
+  note: 'plausibility: a sale dated February 2027, after the meeting'
+  refs:
+  - u-16
+- kind: extraction_trap
+  note: 'self-corrected amount: three million must not be extracted'
+  refs:
+  - u-18

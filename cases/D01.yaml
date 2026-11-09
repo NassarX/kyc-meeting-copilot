@@ -1,0 +1,512 @@
+# D01: synthetic demo meeting, written for kyc-meeting-copilot. No real people or companies.
+# Built by cases/generators/make_samples.py from viewer/samples/; span offsets are computed, not typed.
+case_id: D01
+title: 'A clean meeting: inheritance and salary (synthetic demo D01)'
+origin: author
+as_of_date: '2026-11-09'
+lead:
+  lead_ref: lead-d01
+  rm_id: rm.alice
+transcript:
+  meeting_date: '2026-11-09'
+  utterances:
+  - utt_id: u-01
+    speaker: rm
+    text: Good morning, thanks for coming in. Shall we start with the basics for the account opening?
+  - utt_id: u-02
+    speaker: client
+    text: Of course. Go ahead.
+  - utt_id: u-03
+    speaker: rm
+    text: Could you give me your full name as it appears on your passport?
+  - utt_id: u-04
+    speaker: client
+    text: Ingrid Solveig Halvorsen-Matos. Halvorsen-Matos with a hyphen.
+  - utt_id: u-05
+    speaker: rm
+    text: And your date of birth?
+  - utt_id: u-06
+    speaker: client
+    text: Fourteenth of March, nineteen eighty-four.
+  - utt_id: u-07
+    speaker: rm
+    text: What is your nationality?
+  - utt_id: u-08
+    speaker: client
+    text: I'm Norwegian. Only Norwegian, no second passport.
+  - utt_id: u-09
+    speaker: rm
+    text: And where do you live at the moment?
+  - utt_id: u-10
+    speaker: client
+    text: In Luxembourg. I moved here in September 2016 for work and I've stayed.
+  - utt_id: u-11
+    speaker: rm
+    text: Where are you resident for tax purposes?
+  - utt_id: u-12
+    speaker: client
+    text: Luxembourg as well. I file my tax return here every year.
+  - utt_id: u-13
+    speaker: rm
+    text: Thank you. Let's talk about where your wealth comes from. What are the main sources?
+  - utt_id: u-14
+    speaker: client
+    text: Two things, really. My salary, and an inheritance from my grandmother.
+  - utt_id: u-15
+    speaker: rm
+    text: Let's take the inheritance first. When was that?
+  - utt_id: u-16
+    speaker: client
+    text: She passed away in early 2019 and the estate was settled in April 2019.
+  - utt_id: u-17
+    speaker: rm
+    text: And roughly how much did you receive?
+  - utt_id: u-18
+    speaker: client
+    text: One point eight million euros, after the estate taxes in Norway.
+  - utt_id: u-19
+    speaker: rm
+    text: Who was the estate settled through?
+  - utt_id: u-20
+    speaker: client
+    text: The executor was the family's notary in Bergen, the Lindqvist and Aamodt practice.
+  - utt_id: u-21
+    speaker: rm
+    text: Do you still hold that money?
+  - utt_id: u-22
+    speaker: client
+    text: Most of it. It's sitting in cash and a few bond funds at my current bank, about one point six million euros today.
+  - utt_id: u-23
+    speaker: rm
+    text: Understood. And the salary, where do you work?
+  - utt_id: u-24
+    speaker: client
+    text: I'm director of engineering at Veltrona Systems, here in Luxembourg. It's a private company, industrial sensors.
+  - utt_id: u-25
+    speaker: rm
+    text: What does that pay, roughly?
+  - utt_id: u-26
+    speaker: client
+    text: My base is two hundred and ten thousand euros a year, plus a bonus that's usually around twenty thousand.
+  - utt_id: u-27
+    speaker: rm
+    text: Any other income? Rental, dividends, anything like that?
+  - utt_id: u-28
+    speaker: client
+    text: No, nothing else. I don't own property apart from my flat, and there's no mortgage on it.
+  - utt_id: u-29
+    speaker: rm
+    text: Good. Now a standard question we ask everyone. Do you, or does anyone in your close family, hold a public function?
+      A politician, a senior civil servant, a judge, a senior officer at a state company?
+  - utt_id: u-30
+    speaker: client
+    text: No. Nobody. My parents are retired teachers and my brother is a nurse.
+  - utt_id: u-31
+    speaker: rm
+    text: And you yourself have never held a public office?
+  - utt_id: u-32
+    speaker: client
+    text: Never.
+  - utt_id: u-33
+    speaker: rm
+    text: Thank you. What would you plan to bring into the account to start with?
+  - utt_id: u-34
+    speaker: client
+    text: One point two million euros. I'd move it from the inheritance money at my current bank.
+  - utt_id: u-35
+    speaker: rm
+    text: And after that, do you expect regular flows in or out?
+  - utt_id: u-36
+    speaker: client
+    text: I'd add from my savings, maybe sixty thousand euros a year. Not much going out.
+  - utt_id: u-37
+    speaker: rm
+    text: That's all clear. What are you hoping we'll do with it?
+  - utt_id: u-38
+    speaker: client
+    text: A balanced mandate. Nothing exotic. I'd like it to be there for my children's education eventually.
+  - utt_id: u-39
+    speaker: rm
+    text: Sounds sensible. I'll ask you to send a copy of your passport and the inheritance certificate after the meeting.
+  - utt_id: u-40
+    speaker: client
+    text: No problem, I have both scanned.
+  - utt_id: u-41
+    speaker: rm
+    text: Perfect. I think that's everything for today. Thank you, Ms. Halvorsen-Matos.
+  - utt_id: u-42
+    speaker: client
+    text: Thank you.
+noisy_transcript:
+  meeting_date: '2026-11-09'
+  utterances:
+  - utt_id: u-01
+    speaker: rm
+    text: Good morning, thanks for coming in. Shall we start with the basics for the account opening?
+  - utt_id: u-02
+    speaker: client
+    text: Of course. Go ahead.
+  - utt_id: u-03
+    speaker: rm
+    text: Could you give me your full name as it appears on your passport?
+  - utt_id: u-04
+    speaker: client
+    text: Ingrid Solveig Halvorson-Mattos. Halvorson-Mattos with a hyphen.
+  - utt_id: u-05
+    speaker: rm
+    text: And your date of birth?
+  - utt_id: u-06
+    speaker: client
+    text: Fourteenth of March, nineteen eighty-four.
+  - utt_id: u-07
+    speaker: rm
+    text: What is your nationality?
+  - utt_id: u-08
+    speaker: client
+    text: I'm Nigerian. Only Nigerian, no second passport.
+  - utt_id: u-09
+    speaker: rm
+    text: And where do you live at the moment?
+  - utt_id: u-10
+    speaker: client
+    text: In Luxembourg. I moved here in September 2016 for work and I've stayed.
+  - utt_id: u-11
+    speaker: rm
+    text: Where are you resident for tax purposes?
+  - utt_id: u-12
+    speaker: client
+    text: Luxembourg as well. I file my tax return here every year.
+  - utt_id: u-13
+    speaker: rm
+    text: Thank you. Let's talk about where your wealth comes from. What are the main sources?
+  - utt_id: u-14
+    speaker: client
+    text: Two things, really. My salary, and an inheritance from my grandmother.
+  - utt_id: u-15
+    speaker: rm
+    text: Let's take the inheritance first. When was that?
+  - utt_id: u-16
+    speaker: client
+    text: She passed away in early 2019 and the estate was settled in April 2019.
+  - utt_id: u-17
+    speaker: rm
+    text: And roughly how much did you receive?
+  - utt_id: u-18
+    speaker: client
+    text: One point three million euros, after the estate taxes in Norway.
+  - utt_id: u-19
+    speaker: rm
+    text: Who was the estate settled through?
+  - utt_id: u-20
+    speaker: client
+    text: The executor was the family's notary in Bergen, the Lindqvist and Aamodt practice.
+  - utt_id: u-21
+    speaker: rm
+    text: Do you still hold that money?
+  - utt_id: u-22
+    speaker: client
+    text: Most of it. It's sitting in cash and a few bond funds at my current bank, about one point six million euros today.
+  - utt_id: u-23
+    speaker: rm
+    text: Understood. And the salary, where do you work?
+  - utt_id: u-24
+    speaker: client
+    text: I'm director of engineering at Veltrona Systems, here in Luxembourg. It's a private company, industrial sensors.
+  - utt_id: u-25
+    speaker: rm
+    text: What does that pay, roughly?
+  - utt_id: u-26
+    speaker: client
+    text: My base is two hundred and ten thousand euros a year, plus a bonus that's usually around twenty thousand.
+  - utt_id: u-27
+    speaker: rm
+    text: Any other income? Rental, dividends, anything like that?
+  - utt_id: u-28
+    speaker: client
+    text: No, nothing else. I don't own property apart from my flat, and there's no mortgage on it.
+  - utt_id: u-29
+    speaker: rm
+    text: Good. Now a standard question we ask everyone. Do you, or does anyone in your close family, hold a public function?
+      A politician, a senior civil servant, a judge, a senior officer at a state company?
+  - utt_id: u-30
+    speaker: client
+    text: No. Nobody. My parents are retired teachers and my brother is a nurse.
+  - utt_id: u-31
+    speaker: rm
+    text: And you yourself have never held a public office?
+  - utt_id: u-32
+    speaker: client
+    text: Never.
+  - utt_id: u-33
+    speaker: rm
+    text: Thank you. What would you plan to bring into the account to start with?
+  - utt_id: u-34
+    speaker: client
+    text: One point two million euros. I'd move it from the inheritance money at my current bank.
+  - utt_id: u-35
+    speaker: rm
+    text: And after that, do you expect regular flows in or out?
+  - utt_id: u-36
+    speaker: client
+    text: I'd add from my savings, maybe sixty thousand euros a year. Not much going out.
+  - utt_id: u-37
+    speaker: rm
+    text: That's all clear. What are you hoping we'll do with it?
+  - utt_id: u-38
+    speaker: client
+    text: A balanced mandate. Nothing exotic. I'd like it to be there for my children's education eventually.
+  - utt_id: u-39
+    speaker: rm
+    text: Sounds sensible. I'll ask you to send a copy of your passport and the inheritance certificate after the meeting.
+  - utt_id: u-40
+    speaker: client
+    text: No problem, I have both scanned.
+  - utt_id: u-41
+    speaker: rm
+    text: Perfect. I think that's everything for today. Thank you, Ms. Halvorsen-Matos.
+  - utt_id: u-42
+    speaker: client
+    text: Thank you.
+dossier: []
+checklist:
+- item_id: chk-01
+  document_type: passport
+  present: false
+- item_id: chk-02
+  document_type: inheritance_certificate
+  present: false
+gold:
+  facts:
+  - field: identity.full_name
+    value:
+      kind: text
+      value: Ingrid Solveig Halvorsen-Matos
+    spans:
+    - utt_id: u-04
+      start: 0
+      end: 30
+      quote: Ingrid Solveig Halvorsen-Matos
+  - field: identity.date_of_birth
+    value:
+      kind: date
+      value: '1984-03-14'
+    spans:
+    - utt_id: u-06
+      start: 0
+      end: 41
+      quote: Fourteenth of March, nineteen eighty-four
+  - field: identity.nationality
+    value:
+      kind: country
+      iso2: 'NO'
+    spans:
+    - utt_id: u-08
+      start: 0
+      end: 13
+      quote: I'm Norwegian
+  - field: identity.residence_country
+    value:
+      kind: country
+      iso2: LU
+    spans:
+    - utt_id: u-10
+      start: 0
+      end: 13
+      quote: In Luxembourg
+  - field: identity.residence_since
+    value:
+      kind: date
+      value: '2016-09-01'
+      precision: month
+    spans:
+    - utt_id: u-10
+      start: 15
+      end: 45
+      quote: I moved here in September 2016
+  - field: identity.tax_residence
+    value:
+      kind: country
+      iso2: LU
+    spans:
+    - utt_id: u-12
+      start: 0
+      end: 18
+      quote: Luxembourg as well
+  - field: wealth_event.type
+    subject_ref: wealth_event/1
+    value:
+      kind: text
+      value: inheritance
+    spans:
+    - utt_id: u-14
+      start: 35
+      end: 69
+      quote: an inheritance from my grandmother
+  - field: wealth_event.date
+    subject_ref: wealth_event/1
+    value:
+      kind: date
+      value: '2019-04-01'
+      precision: month
+    spans:
+    - utt_id: u-16
+      start: 34
+      end: 70
+      quote: the estate was settled in April 2019
+    derivation: the settlement month, when the money was received
+  - field: wealth_event.amount
+    subject_ref: wealth_event/1
+    value:
+      kind: money
+      amount: '1800000'
+      currency: EUR
+    spans:
+    - utt_id: u-18
+      start: 0
+      end: 29
+      quote: One point eight million euros
+  - field: wealth_event.counterparty
+    subject_ref: wealth_event/1
+    value:
+      kind: text
+      value: grandmother
+    spans:
+    - utt_id: u-14
+      start: 55
+      end: 69
+      quote: my grandmother
+    derivation: for an inheritance, the person it came from
+  - field: asset.type
+    subject_ref: asset/1
+    value:
+      kind: text
+      value: cash
+    spans:
+    - utt_id: u-22
+      start: 28
+      end: 53
+      quote: cash and a few bond funds
+    derivation: mixed holding; cash is named first (a 'securities' reading is defensible)
+  - field: asset.value
+    subject_ref: asset/1
+    value:
+      kind: money
+      amount: '1600000'
+      currency: EUR
+    spans:
+    - utt_id: u-22
+      start: 74
+      end: 113
+      quote: about one point six million euros today
+  - field: asset.type
+    subject_ref: asset/2
+    value:
+      kind: text
+      value: real_estate
+    spans:
+    - utt_id: u-28
+      start: 50
+      end: 57
+      quote: my flat
+  - field: income.source
+    subject_ref: income/1
+    value:
+      kind: text
+      value: salary as director of engineering at Veltrona Systems
+    spans:
+    - utt_id: u-24
+      start: 0
+      end: 47
+      quote: I'm director of engineering at Veltrona Systems
+  - field: income.amount
+    subject_ref: income/1
+    value:
+      kind: money
+      amount: '210000'
+      currency: EUR
+      period: per_year
+    spans:
+    - utt_id: u-26
+      start: 11
+      end: 52
+      quote: two hundred and ten thousand euros a year
+  - field: income.source
+    subject_ref: income/2
+    value:
+      kind: text
+      value: bonus
+    spans:
+    - utt_id: u-26
+      start: 59
+      end: 66
+      quote: a bonus
+  - field: income.amount
+    subject_ref: income/2
+    value:
+      kind: money
+      amount: '20000'
+      currency: EUR
+      period: per_year
+    spans:
+    - utt_id: u-26
+      start: 74
+      end: 104
+      quote: usually around twenty thousand
+  - field: pep.none_declared
+    value:
+      kind: bool
+      value: true
+    spans:
+    - utt_id: u-30
+      start: 0
+      end: 11
+      quote: No. Nobody.
+    - utt_id: u-32
+      start: 0
+      end: 6
+      quote: Never.
+  - field: expected.initial_funding_amount
+    value:
+      kind: money
+      amount: '1200000'
+      currency: EUR
+    spans:
+    - utt_id: u-34
+      start: 0
+      end: 27
+      quote: One point two million euros
+  - field: expected.initial_funding_source
+    value:
+      kind: text
+      value: inheritance money held at the current bank
+    spans:
+    - utt_id: u-34
+      start: 29
+      end: 86
+      quote: I'd move it from the inheritance money at my current bank
+  - field: expected.annual_flows
+    value:
+      kind: money
+      amount: '60000'
+      currency: EUR
+      period: per_year
+    spans:
+    - utt_id: u-36
+      start: 25
+      end: 58
+      quote: maybe sixty thousand euros a year
+  gaps: []
+  contradictions: []
+  bounce_reasons:
+  - BR-DOC-ID-MISSING
+traps:
+- kind: extraction_trap
+  note: 'baseline: every required fact is stated once and clearly'
+  refs: []
+- kind: extraction_trap
+  note: 'noisy transcript: name, nationality (NO heard as Nigerian) and the inheritance (1.8M heard as 1.3M) are misheard
+    but read naturally'
+  refs:
+  - u-04
+  - u-08
+  - u-18

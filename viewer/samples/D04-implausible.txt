@@ -1,0 +1,46 @@
+rm: Good afternoon, Dr. Moreira Lindgren. Thank you for coming to Zurich. Shall we go through the account opening?
+client: Yes, of course. I've blocked the afternoon.
+rm: Your full name, please.
+client: Beatriz Helena Moreira Lindgren.
+rm: Date of birth?
+client: The ninth of August, nineteen seventy-one.
+rm: And your nationality?
+client: Brazilian. I have a Swiss C permit but not the passport.
+rm: So you live in Switzerland?
+client: Yes, in Zug. Since 2008.
+rm: And your tax residence?
+client: Switzerland. Canton of Zug.
+rm: Thank you. Where does your wealth come from?
+client: I built up a chain of dental clinics, four clinics in central Switzerland, Clínica Serrana Dental. I sold it.
+rm: When did that sale complete?
+client: In February. February twenty twenty-seven. The closing was on the twelfth.
+rm: And the price for your share?
+client: I owned all of it. It went for three, no, sorry, two point four million Swiss francs. Two point four. The three was the first offer.
+rm: Who bought it?
+client: A dental group from Basel, Orvana Praxisgruppe.
+rm: Understood. Any other assets?
+client: I have a brokerage account at another bank. About six hundred thousand francs in shares.
+rm: And property?
+client: The house in Zug, but there's a mortgage on it, so I wouldn't count it.
+rm: What rate is the mortgage, roughly?
+client: One point four percent, fixed for ten years.
+rm: And current income, since the sale?
+client: I still consult for the buyer, two days a week. One hundred and eighty thousand francs a year.
+rm: Any other income?
+client: Some dividends from the brokerage account, small. Maybe fifteen thousand a year.
+rm: Okay. The standard question. Do you or any family member hold a public function?
+client: No. My husband is a dentist too. No politics anywhere.
+rm: Thank you. Now, what would you like to bring into the account initially?
+client: I was thinking four and a half million francs.
+rm: Four point five million Swiss francs?
+client: Yes. Four point five. To start with.
+rm: Where would that come from?
+client: From the sale proceeds and the brokerage account. I'd move both over.
+rm: Okay. Just so I have the picture: sale proceeds of two point four million and a brokerage account of around six hundred thousand?
+client: Yes, that's right.
+rm: Any ongoing flows after the initial funding?
+client: I'd add from the consulting income, maybe a hundred thousand a year.
+rm: Fine. I'll need the sale agreement, your residence permit and a passport copy.
+client: I'll send them.
+rm: Thank you. That's all for today.
+client: Thank you.

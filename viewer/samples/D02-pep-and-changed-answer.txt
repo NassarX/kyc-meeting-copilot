@@ -1,0 +1,50 @@
+rm: Thanks for making the trip to our Monaco office, Mr. Kowalczyk-Amari. Is it all right if I go through the onboarding questions?
+client: Yes, yes, please. I have about an hour.
+rm: Your full name, please, as on your passport.
+client: Dariusz Piotr Kowalczyk-Amari.
+rm: And your date of birth?
+client: Twenty-second of November, nineteen seventy-nine.
+rm: Nationality?
+client: Polish.
+rm: And you live here in Monaco now?
+client: Yes, since September last year. We have an apartment in Fontvieille.
+rm: And for tax, where are you resident?
+client: Monaco. That was the whole point of the move, honestly.
+rm: Understood. Can you tell me where your wealth comes from?
+client: Mostly the sale of my company. I founded a software firm in Kraków, Brzozowa Analytics, data tools for logistics companies.
+rm: When did you sell it?
+client: The deal closed in June 2023.
+rm: And what did you hold before the sale?
+client: Sixty percent. My co-founder had the rest.
+rm: Who was the buyer?
+client: A Dutch group, Halderveen Software Partners.
+rm: And your share of the proceeds?
+client: Three point two million euros, before tax. A bit under three after.
+rm: Okay. And since the sale, do you have an income?
+client: I sit on two advisory boards. Together it's about ninety thousand euros a year.
+rm: Fine. Now, the question we ask everybody. Do you or any family member hold a public function? Politics, government, a state company, anything like that?
+client: No, no. Nobody in politics. We're a boring family.
+rm: Not a judge, a senior official, nothing of that kind?
+client: Well, my sister works for the government in Warsaw, but it's a, you know, a civil service thing. Not politics.
+rm: What does she do there, if you don't mind me asking?
+client: She's at the infrastructure ministry. She was in the planning department for years.
+rm: Is that still her role?
+client: Hmm. To be honest, last year she was appointed deputy minister. Deputy minister of infrastructure. I don't really think of it as politics, she's a technocrat.
+rm: Thank you, that's helpful. What's your sister's name, for the file?
+client: Agnieszka Kowalczyk. Kowalczyk without the Amari.
+rm: Okay. Let's talk about the account. What would you plan to deposit initially?
+client: Around two million euros, from the sale proceeds. They're with a bank in Warsaw now.
+rm: And ongoing flows?
+client: The board fees, so maybe ninety thousand a year coming in. Some going out for living costs.
+rm: Do you have any loans, a mortgage on the apartment?
+client: No, we bought it outright. Well, from the sale money.
+rm: Do you own any other property?
+client: A house near Zakopane. Holiday house, maybe worth four hundred thousand euros.
+rm: Okay, nearly done. I just want to go back to the tax question for my notes. Monaco as tax residence, correct?
+client: Ah. Actually, I should correct that. For this year I'm still filing in Poland. My adviser said the Monaco residence only counts for tax from January. So for now, Poland.
+rm: So currently your tax residence is Poland?
+client: Yes. Poland. Sorry for the confusion earlier.
+rm: No problem, that's exactly why I asked again. I'll need your Monaco residence card and a copy of the share sale agreement.
+client: I'll get those to you this week.
+rm: Thank you. That's everything for today.
+client: Thank you very much.

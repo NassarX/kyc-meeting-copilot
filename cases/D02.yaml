@@ -1,0 +1,440 @@
+# D02: synthetic demo meeting, written for kyc-meeting-copilot. No real people or companies.
+# Built by cases/generators/make_samples.py from viewer/samples/; span offsets are computed, not typed.
+case_id: D02
+title: A sister in government, played down, and a tax residence that changes (synthetic demo D02)
+origin: author
+as_of_date: '2026-11-09'
+lead:
+  lead_ref: lead-d02
+  rm_id: rm.alice
+transcript:
+  meeting_date: '2026-11-09'
+  utterances:
+  - utt_id: u-01
+    speaker: rm
+    text: Thanks for making the trip to our Monaco office, Mr. Kowalczyk-Amari. Is it all right if I go through the onboarding
+      questions?
+  - utt_id: u-02
+    speaker: client
+    text: Yes, yes, please. I have about an hour.
+  - utt_id: u-03
+    speaker: rm
+    text: Your full name, please, as on your passport.
+  - utt_id: u-04
+    speaker: client
+    text: Dariusz Piotr Kowalczyk-Amari.
+  - utt_id: u-05
+    speaker: rm
+    text: And your date of birth?
+  - utt_id: u-06
+    speaker: client
+    text: Twenty-second of November, nineteen seventy-nine.
+  - utt_id: u-07
+    speaker: rm
+    text: Nationality?
+  - utt_id: u-08
+    speaker: client
+    text: Polish.
+  - utt_id: u-09
+    speaker: rm
+    text: And you live here in Monaco now?
+  - utt_id: u-10
+    speaker: client
+    text: Yes, since September last year. We have an apartment in Fontvieille.
+  - utt_id: u-11
+    speaker: rm
+    text: And for tax, where are you resident?
+  - utt_id: u-12
+    speaker: client
+    text: Monaco. That was the whole point of the move, honestly.
+  - utt_id: u-13
+    speaker: rm
+    text: Understood. Can you tell me where your wealth comes from?
+  - utt_id: u-14
+    speaker: client
+    text: Mostly the sale of my company. I founded a software firm in Kraków, Brzozowa Analytics, data tools for logistics
+      companies.
+  - utt_id: u-15
+    speaker: rm
+    text: When did you sell it?
+  - utt_id: u-16
+    speaker: client
+    text: The deal closed in June 2023.
+  - utt_id: u-17
+    speaker: rm
+    text: And what did you hold before the sale?
+  - utt_id: u-18
+    speaker: client
+    text: Sixty percent. My co-founder had the rest.
+  - utt_id: u-19
+    speaker: rm
+    text: Who was the buyer?
+  - utt_id: u-20
+    speaker: client
+    text: A Dutch group, Halderveen Software Partners.
+  - utt_id: u-21
+    speaker: rm
+    text: And your share of the proceeds?
+  - utt_id: u-22
+    speaker: client
+    text: Three point two million euros, before tax. A bit under three after.
+  - utt_id: u-23
+    speaker: rm
+    text: Okay. And since the sale, do you have an income?
+  - utt_id: u-24
+    speaker: client
+    text: I sit on two advisory boards. Together it's about ninety thousand euros a year.
+  - utt_id: u-25
+    speaker: rm
+    text: Fine. Now, the question we ask everybody. Do you or any family member hold a public function? Politics, government,
+      a state company, anything like that?
+  - utt_id: u-26
+    speaker: client
+    text: No, no. Nobody in politics. We're a boring family.
+  - utt_id: u-27
+    speaker: rm
+    text: Not a judge, a senior official, nothing of that kind?
+  - utt_id: u-28
+    speaker: client
+    text: Well, my sister works for the government in Warsaw, but it's a, you know, a civil service thing. Not politics.
+  - utt_id: u-29
+    speaker: rm
+    text: What does she do there, if you don't mind me asking?
+  - utt_id: u-30
+    speaker: client
+    text: She's at the infrastructure ministry. She was in the planning department for years.
+  - utt_id: u-31
+    speaker: rm
+    text: Is that still her role?
+  - utt_id: u-32
+    speaker: client
+    text: Hmm. To be honest, last year she was appointed deputy minister. Deputy minister of infrastructure. I don't really
+      think of it as politics, she's a technocrat.
+  - utt_id: u-33
+    speaker: rm
+    text: Thank you, that's helpful. What's your sister's name, for the file?
+  - utt_id: u-34
+    speaker: client
+    text: Agnieszka Kowalczyk. Kowalczyk without the Amari.
+  - utt_id: u-35
+    speaker: rm
+    text: Okay. Let's talk about the account. What would you plan to deposit initially?
+  - utt_id: u-36
+    speaker: client
+    text: Around two million euros, from the sale proceeds. They're with a bank in Warsaw now.
+  - utt_id: u-37
+    speaker: rm
+    text: And ongoing flows?
+  - utt_id: u-38
+    speaker: client
+    text: The board fees, so maybe ninety thousand a year coming in. Some going out for living costs.
+  - utt_id: u-39
+    speaker: rm
+    text: Do you have any loans, a mortgage on the apartment?
+  - utt_id: u-40
+    speaker: client
+    text: No, we bought it outright. Well, from the sale money.
+  - utt_id: u-41
+    speaker: rm
+    text: Do you own any other property?
+  - utt_id: u-42
+    speaker: client
+    text: A house near Zakopane. Holiday house, maybe worth four hundred thousand euros.
+  - utt_id: u-43
+    speaker: rm
+    text: Okay, nearly done. I just want to go back to the tax question for my notes. Monaco as tax residence, correct?
+  - utt_id: u-44
+    speaker: client
+    text: Ah. Actually, I should correct that. For this year I'm still filing in Poland. My adviser said the Monaco residence
+      only counts for tax from January. So for now, Poland.
+  - utt_id: u-45
+    speaker: rm
+    text: So currently your tax residence is Poland?
+  - utt_id: u-46
+    speaker: client
+    text: Yes. Poland. Sorry for the confusion earlier.
+  - utt_id: u-47
+    speaker: rm
+    text: No problem, that's exactly why I asked again. I'll need your Monaco residence card and a copy of the share sale
+      agreement.
+  - utt_id: u-48
+    speaker: client
+    text: I'll get those to you this week.
+  - utt_id: u-49
+    speaker: rm
+    text: Thank you. That's everything for today.
+  - utt_id: u-50
+    speaker: client
+    text: Thank you very much.
+dossier: []
+checklist:
+- item_id: chk-01
+  document_type: residence_permit
+  present: false
+- item_id: chk-02
+  document_type: sale_agreement
+  present: false
+gold:
+  facts:
+  - field: identity.full_name
+    value:
+      kind: text
+      value: Dariusz Piotr Kowalczyk-Amari
+    spans:
+    - utt_id: u-04
+      start: 0
+      end: 29
+      quote: Dariusz Piotr Kowalczyk-Amari
+  - field: identity.date_of_birth
+    value:
+      kind: date
+      value: '1979-11-22'
+    spans:
+    - utt_id: u-06
+      start: 0
+      end: 48
+      quote: Twenty-second of November, nineteen seventy-nine
+  - field: identity.nationality
+    value:
+      kind: country
+      iso2: PL
+    spans:
+    - utt_id: u-08
+      start: 0
+      end: 6
+      quote: Polish
+  - field: identity.residence_country
+    value:
+      kind: country
+      iso2: MC
+    spans:
+    - utt_id: u-09
+      start: 4
+      end: 31
+      quote: you live here in Monaco now
+    - utt_id: u-10
+      start: 0
+      end: 3
+      quote: 'Yes'
+  - field: identity.residence_since
+    value:
+      kind: relative_date
+      words: since September last year
+      anchor: '2026-11-09'
+      resolved: '2025-09-01'
+    spans:
+    - utt_id: u-10
+      start: 5
+      end: 30
+      quote: since September last year
+  - field: identity.tax_residence
+    value:
+      kind: country
+      iso2: PL
+    spans:
+    - utt_id: u-44
+      start: 150
+      end: 168
+      quote: So for now, Poland
+    - utt_id: u-46
+      start: 0
+      end: 12
+      quote: Yes. Poland.
+    derivation: 'corrected late in the meeting: Monaco counts for tax only from January'
+  - field: wealth_event.type
+    subject_ref: wealth_event/1
+    value:
+      kind: text
+      value: business_sale
+    spans:
+    - utt_id: u-14
+      start: 0
+      end: 29
+      quote: Mostly the sale of my company
+  - field: wealth_event.date
+    subject_ref: wealth_event/1
+    value:
+      kind: date
+      value: '2023-06-01'
+      precision: month
+    spans:
+    - utt_id: u-16
+      start: 0
+      end: 28
+      quote: The deal closed in June 2023
+  - field: wealth_event.ownership_pct
+    subject_ref: wealth_event/1
+    value:
+      kind: percent
+      value: '60'
+    spans:
+    - utt_id: u-18
+      start: 0
+      end: 13
+      quote: Sixty percent
+  - field: wealth_event.counterparty
+    subject_ref: wealth_event/1
+    value:
+      kind: text
+      value: Halderveen Software Partners
+    spans:
+    - utt_id: u-20
+      start: 15
+      end: 43
+      quote: Halderveen Software Partners
+    derivation: the buyer
+  - field: wealth_event.amount
+    subject_ref: wealth_event/1
+    value:
+      kind: money
+      amount: '3200000'
+      currency: EUR
+    spans:
+    - utt_id: u-22
+      start: 0
+      end: 41
+      quote: Three point two million euros, before tax
+    derivation: the gross figure is the stated share of the proceeds
+  - field: income.source
+    subject_ref: income/1
+    value:
+      kind: text
+      value: advisory board fees
+    spans:
+    - utt_id: u-24
+      start: 0
+      end: 28
+      quote: I sit on two advisory boards
+  - field: income.amount
+    subject_ref: income/1
+    value:
+      kind: money
+      amount: '90000'
+      currency: EUR
+      period: per_year
+    spans:
+    - utt_id: u-24
+      start: 44
+      end: 78
+      quote: about ninety thousand euros a year
+  - field: pep.family_public_function
+    subject_ref: pep/1
+    value:
+      kind: text
+      value: sister, deputy minister of infrastructure
+    spans:
+    - utt_id: u-32
+      start: 29
+      end: 97
+      quote: she was appointed deputy minister. Deputy minister of infrastructure
+    derivation: admitted after two denials; the sister is named in u-34
+  - field: asset.type
+    subject_ref: asset/1
+    value:
+      kind: text
+      value: real_estate
+    spans:
+    - utt_id: u-10
+      start: 40
+      end: 67
+      quote: an apartment in Fontvieille
+  - field: asset.location
+    subject_ref: asset/1
+    value:
+      kind: country
+      iso2: MC
+    spans:
+    - utt_id: u-10
+      start: 56
+      end: 67
+      quote: Fontvieille
+  - field: asset.type
+    subject_ref: asset/2
+    value:
+      kind: text
+      value: real_estate
+    spans:
+    - utt_id: u-42
+      start: 0
+      end: 21
+      quote: A house near Zakopane
+  - field: asset.location
+    subject_ref: asset/2
+    value:
+      kind: country
+      iso2: PL
+    spans:
+    - utt_id: u-42
+      start: 13
+      end: 21
+      quote: Zakopane
+  - field: asset.value
+    subject_ref: asset/2
+    value:
+      kind: money
+      amount: '400000'
+      currency: EUR
+    spans:
+    - utt_id: u-42
+      start: 38
+      end: 77
+      quote: maybe worth four hundred thousand euros
+  - field: expected.initial_funding_amount
+    value:
+      kind: money
+      amount: '2000000'
+      currency: EUR
+    spans:
+    - utt_id: u-36
+      start: 0
+      end: 24
+      quote: Around two million euros
+  - field: expected.initial_funding_source
+    value:
+      kind: text
+      value: sale proceeds held at a bank in Warsaw
+    spans:
+    - utt_id: u-36
+      start: 26
+      end: 83
+      quote: from the sale proceeds. They're with a bank in Warsaw now
+  - field: expected.annual_flows
+    value:
+      kind: money
+      amount: '90000'
+      currency: EUR
+      period: per_year
+    spans:
+    - utt_id: u-38
+      start: 19
+      end: 57
+      quote: maybe ninety thousand a year coming in
+  superseded:
+  - field: identity.tax_residence
+    value:
+      kind: country
+      iso2: MC
+    spans:
+    - utt_id: u-12
+      start: 0
+      end: 44
+      quote: Monaco. That was the whole point of the move
+  gaps: []
+  contradictions: []
+  bounce_reasons:
+  - BR-DOC-ID-MISSING
+  - BR-TAX-RESIDENCE-DIFFERS
+  - BR-EDD-PEP
+traps:
+- kind: extraction_trap
+  note: the PEP sister is denied twice, then admitted; the denial is superseded, not a fact
+  refs:
+  - u-26
+  - u-28
+  - u-32
+- kind: extraction_trap
+  note: 'tax residence changes from Monaco to Poland: keep both, propose the newer'
+  refs:
+  - u-12
+  - u-44
+  - u-46

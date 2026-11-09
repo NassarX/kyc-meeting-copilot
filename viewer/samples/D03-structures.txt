@@ -1,0 +1,47 @@
+rm: Hello, can you both hear me? I think we have everyone now.
+client: Yes, I'm here. And my accountant is dialling in from Vaduz.
+accountant: Good afternoon, Henrike Valtersson here. I look after the family structures.
+rm: Welcome. Mr. Bastien-Nakamura, let's start with you. Your full name, please.
+client: Aurelio Kenji Bastien-Nakamura.
+rm: Your nationality?
+client: Canadian.
+rm: And where do you live?
+client: Dubai. I've been in the UAE since March 2020.
+rm: And where are you resident for tax?
+client: The UAE as well. I gave up my Canadian tax residence when I moved, that was all done properly.
+accountant: We have the departure filing on record, if the bank needs it.
+rm: Thank you. Now, the source of wealth. Can you walk me through it?
+client: I co-founded a freight logistics company, Corvalis Freight. I held thirty-five percent. We sold the whole company to a private equity buyer in October 2022.
+rm: And your share of the sale?
+client: Fourteen million euros, roughly. Fourteen point one, I think.
+accountant: Fourteen point one million, yes, I have the completion statement here.
+rm: Who was the buyer?
+client: Marlowe Ridge Capital, a fund based in London.
+rm: Did the proceeds come to you personally?
+accountant: No. Not personally. The shares were held through Tessaro Holdings Limited, a Jersey company, so the proceeds went to Tessaro.
+rm: And who owns Tessaro Holdings?
+accountant: Tessaro is one hundred percent owned by the Alvermont Foundation, a Liechtenstein foundation.
+rm: So the foundation is the legal owner of the company. Who is the beneficial owner?
+accountant: Mr. Bastien-Nakamura is the founder and the first beneficiary of the foundation. His two children are second beneficiaries.
+client: So in the end it's me. The foundation is just the wrapper.
+rm: When was the foundation set up?
+accountant: The Alvermont Foundation was established in June 2019. Tessaro was incorporated earlier, in 2014.
+rm: Thank you. Does the foundation hold anything besides Tessaro?
+accountant: An apartment in Lisbon, worth about one point nine million euros, held directly by the foundation.
+rm: And what assets sit in Tessaro now?
+accountant: Mostly cash and a bond portfolio, about eleven million euros, at a private bank in Vaduz.
+rm: Mr. Bastien-Nakamura, do you have personal income apart from the structure?
+client: I take a dividend from Tessaro, around four hundred thousand euros a year. And I have a board seat at a shipping start-up, small, maybe thirty thousand a year.
+rm: Okay. The standard question: do you or anyone in your family hold a public function?
+client: No. None of us. My wife is an architect and the children are at school.
+rm: Thank you. What's the plan for the relationship with us?
+client: We'd move part of the Tessaro portfolio. Six million euros to start, coming from Tessaro's account in Vaduz.
+accountant: The account would be opened for Tessaro, with Mr. Bastien-Nakamura declared as beneficial owner.
+rm: Understood. Expected flows after that?
+accountant: Small. The dividend out to him once a year, maybe some coupons in.
+rm: I'll need the foundation deed, the Tessaro register extract and the shareholder register, plus the sale agreement.
+accountant: I can send all of those by Friday.
+client: And my passport, I assume.
+rm: Yes, a copy of your passport too. I think that covers it. Thank you both.
+accountant: Thank you.
+client: Thanks, speak soon.
