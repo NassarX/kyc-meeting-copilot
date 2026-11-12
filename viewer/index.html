@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>kyc-presubmit</title>
+<style>
+@font-face { font-family: "Source Sans 3"; src: url(/static/fonts/source-sans-3-latin-wght-normal.woff2) format("woff2"); font-weight: 200 900; font-display: swap; }
+@font-face { font-family: "Source Sans 3"; src: url(/static/fonts/source-sans-3-latin-ext-wght-normal.woff2) format("woff2"); font-weight: 200 900; font-display: swap; unicode-range: U+0100-024F, U+1E00-1EFF; }
+@font-face { font-family: "Source Serif 4"; src: url(/static/fonts/source-serif-4-latin-wght-normal.woff2) format("woff2"); font-weight: 200 900; font-display: swap; }
+@font-face { font-family: "Source Serif 4"; src: url(/static/fonts/source-serif-4-latin-ext-wght-normal.woff2) format("woff2"); font-weight: 200 900; font-display: swap; unicode-range: U+0100-024F, U+1E00-1EFF; }
+@font-face { font-family: "JetBrains Mono"; src: url(/static/fonts/jetbrains-mono-latin-wght-normal.woff2) format("woff2"); font-weight: 100 800; font-display: swap; }
+:root {
+  --paper: #F5F6F3; --surface: #FFFFFF; --ink: #17212B; --ink-muted: #5B6670; --ink-faint: #8A949C; --rule: #E2E5DF;
+  --accent: #0E6B66; --accent-ink: #FFFFFF; --accent-soft: #E6F0EF; --mark: #F3DE8A;
+  --flag: #A33A1C; --confirm: #8A6100; --gap: #4C5A66;
+  --sans: "Source Sans 3", sans-serif; --serif: "Source Serif 4", serif; --mono: "JetBrains Mono", monospace;
+  --r-sm: 4px; --r-md: 8px; --ease-out: cubic-bezier(.2, .7, .2, 1); --ease-io: cubic-bezier(.6, 0, .3, 1);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #11171D; --surface: #18212A; --ink: #E7ECEF; --ink-muted: #9AA6B0; --ink-faint: #6E7A84; --rule: #26313A;
+  --accent: #4FB3AC; --accent-ink: #0B1A19; --accent-soft: #16302E; --mark: #7A6620; --flag: #F08A6C; --confirm: #E8C15A; --gap: #A9B6C1; } }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+button, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: var(--r-sm); }
+
+.bar { display: flex; align-items: center; gap: 16px; height: 64px; padding: 0 32px; border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--paper); z-index: 5; }
+.brand { font-weight: 700; letter-spacing: -0.01em; }
+.note { font-size: 0.8125rem; color: var(--ink-faint); }
+.new { margin-left: auto; position: relative; }
+.btn { min-height: 44px; padding: 0 18px; border-radius: var(--r-md); border: 1px solid var(--rule); background: var(--surface); font-weight: 600; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); transition: transform 120ms var(--ease-out); }
+.btn.primary:active { transform: scale(.98); }
+.btn.rec { background: var(--flag); border-color: var(--flag); color: #fff; }
+.sheet { position: absolute; right: 0; top: 52px; width: 340px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-md);
+  box-shadow: 0 12px 32px -12px rgb(23 33 43 / .25); padding: 6px; opacity: 0; transform: translateY(-6px); pointer-events: none;
+  transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out); }
+.sheet.open { opacity: 1; transform: none; pointer-events: auto; }
+.choice { display: flex; flex-direction: column; align-items: flex-start; width: 100%; min-height: 56px; padding: 10px 12px; border: 0; border-radius: var(--r-sm); background: none; text-align: left; }
+.choice:hover { background: var(--accent-soft); }
+.choice span { font-size: 0.8125rem; color: var(--ink-muted); }
+.date { display: flex; align-items: center; gap: 8px; padding: 8px 12px 10px; font-size: 0.8125rem; color: var(--ink-muted); border-bottom: 1px solid var(--rule); margin-bottom: 4px; }
+.date input { border: 1px solid var(--rule); border-radius: var(--r-sm); padding: 4px 8px; background: var(--paper); font-family: var(--mono); font-size: 0.8125rem; }
+.paste { padding: 8px 12px 12px; display: grid; gap: 8px; }
+.samples { padding: 0 6px 6px; }
+.samples .choice { min-height: 48px; padding: 8px 10px; }
+.samples .choice b { font-weight: 600; font-size: 0.9375rem; }
+.sheet { max-height: calc(100vh - 80px); overflow-y: auto; }
+.tools { display: flex; gap: 8px; margin: -12px 0 28px; }
+.btn.quiet { min-height: 40px; padding: 0 14px; font-size: 0.875rem; }
+.paste textarea { width: 100%; min-height: 160px; border: 1px solid var(--rule); border-radius: var(--r-sm); padding: 10px; background: var(--paper); font-family: var(--serif); font-size: 0.9375rem; resize: vertical; }
+
+main { display: grid; grid-template-columns: 1fr 440px; min-height: calc(100vh - 64px); }
+main > * { min-width: 0; }
+.left { padding: 36px 48px 64px; max-width: 780px; }
+.right { border-left: 1px solid var(--rule); background: var(--surface); padding: 28px 28px 64px; }
+.title h1 { font-size: 1.75rem; line-height: 1.2; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 4px; }
+.title p { margin: 0 0 28px; color: var(--ink-muted); font-size: 0.9375rem; }
+.empty { color: var(--ink-muted); max-width: 52ch; }
+.empty h1 { color: var(--ink); }
+
+.transcript { font-family: var(--serif); font-size: 1.125rem; line-height: 1.75; }
+.utt { margin: 0 0 14px; position: relative; }
+.utt .who { position: absolute; left: -44px; top: 6px; font-family: var(--mono); font-size: 0.6875rem; color: var(--ink-faint); opacity: 0; transition: opacity 150ms; }
+.utt:hover .who, .utt .who.named { opacity: 1; }
+.q { cursor: pointer; text-decoration: underline dotted var(--ink-faint); text-underline-offset: 5px; text-decoration-thickness: 1px;
+  background: linear-gradient(var(--mark), var(--mark)) no-repeat 0 100% / 0% 100%; border-radius: 2px;
+  transition: background-size 260ms var(--ease-out), text-decoration-color 200ms; }
+.q:hover { text-decoration-color: var(--accent); }
+.q.on { background-size: 100% 100%; text-decoration-color: transparent; }
+
+.progress { display: grid; gap: 14px; padding: 8px 0; }
+.step { display: flex; align-items: center; gap: 12px; color: var(--ink-faint); transition: color 200ms; }
+.step i { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid currentColor; transition: background 200ms, border-color 200ms; }
+.step.doing { color: var(--ink); } .step.doing i { border-color: var(--accent); animation: pulse 900ms var(--ease-io) infinite; }
+.step.done { color: var(--ink-muted); } .step.done i { background: var(--accent); border-color: var(--accent); }
+@keyframes pulse { 50% { transform: scale(1.35); opacity: .5; } }
+.error { color: var(--flag); padding: 12px 0; }
+
+.seg { display: flex; gap: 4px; padding: 4px; background: var(--paper); border-radius: var(--r-md); position: relative; margin-bottom: 24px; }
+.seg button { flex: 1; min-height: 40px; border: 0; background: none; border-radius: 6px; color: var(--ink-muted); font-weight: 600; position: relative; z-index: 1; transition: color 200ms; }
+.seg button.on { color: var(--ink); }
+.seg button b { font-family: var(--mono); font-weight: 500; font-size: 0.75rem; margin-left: 6px; color: var(--ink-faint); }
+.seg .pill { position: absolute; top: 4px; bottom: 4px; background: var(--surface); border-radius: 6px; box-shadow: 0 1px 3px rgb(23 33 43 / .12); transition: left 260ms var(--ease-io), width 260ms var(--ease-io); }
+.view { display: none; } .view.on { display: block; }
+
+.h { font-size: 0.75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 10px; }
+.row { display: grid; grid-template-columns: 8px 1fr; gap: 14px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.row:last-child { border-bottom: 0; }
+.row .dot { width: 8px; height: 8px; border-radius: 50%; transform: translateY(-1px); }
+.row.flag .dot { background: var(--flag); } .row.confirm .dot { background: var(--confirm); } .row.gap .dot { background: var(--ink-faint); }
+.row .t { font-weight: 600; } .row .s { display: block; font-size: 0.8125rem; color: var(--ink-muted); font-weight: 400; }
+.row.link { cursor: pointer; } .row.link:hover .t { color: var(--accent); }
+.block { margin-bottom: 28px; }
+.muted { color: var(--ink-muted); font-size: 0.9375rem; }
+
+.key { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.key:last-child { border-bottom: 0; }
+.key .k { font-size: 0.875rem; color: var(--ink-muted); cursor: pointer; }
+.key .k b { display: block; color: var(--ink); font-family: var(--mono); font-weight: 500; font-size: 0.875rem; font-feature-settings: "tnum"; }
+.icon { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--rule); background: var(--surface); display: inline-grid; place-items: center; }
+.icon svg { width: 14px; height: 14px; fill: var(--accent); }
+.icon.playing { background: var(--accent-soft); }
+.ok { min-height: 40px; padding: 0 12px; border-radius: var(--r-md); border: 1px solid var(--rule); background: var(--surface); font-weight: 600; font-size: 0.875rem; transition: background 160ms, color 160ms; }
+.ok.done { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.tally { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-muted); }
+
+.group { border-bottom: 1px solid var(--rule); }
+.group > button { display: flex; width: 100%; align-items: center; justify-content: space-between; min-height: 52px; border: 0; background: none; font-weight: 600; padding: 0; }
+.group > button em { font-style: normal; font-family: var(--mono); font-size: 0.75rem; color: var(--ink-faint); margin-left: 8px; }
+.chev { width: 8px; height: 8px; border-right: 1.5px solid var(--ink-muted); border-bottom: 1.5px solid var(--ink-muted); transform: rotate(45deg); transition: transform 220ms var(--ease-io); }
+.group.open .chev { transform: rotate(225deg); }
+.facts { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 260ms var(--ease-io); }
+.group.open .facts { grid-template-rows: 1fr; }
+.facts > div { overflow: hidden; }
+.fact { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 10px 12px; margin: 0 -12px; border-radius: var(--r-sm); cursor: pointer; transition: background 150ms; }
+.fact:hover { background: var(--paper); } .fact.on { background: var(--accent-soft); }
+.fact .k { color: var(--ink-muted); font-size: 0.9375rem; }
+.fact .v { font-family: var(--mono); font-size: 0.875rem; font-feature-settings: "tnum"; text-align: right; }
+.fact .warn { display: block; font-family: var(--sans); font-size: 0.75rem; color: var(--confirm); font-weight: 600; }
+.facts > div > :last-child { margin-bottom: 10px; }
+
+.reveal > * { opacity: 0; transform: translateY(8px); animation: rise 380ms var(--ease-out) forwards; }
+@keyframes rise { to { opacity: 1; transform: none; } }
+@media (max-width: 980px) { main { grid-template-columns: 1fr; } .right { border-left: 0; border-top: 1px solid var(--rule); } .left { padding: 28px 20px; } .bar { padding: 0 16px; } .note { display: none; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .reveal > * { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="brand">kyc-presubmit</div>
+  <div class="note">Synthetic demo data · not a real client</div>
+  <div class="new">
+    <button class="btn" id="stopBtn" hidden>Stop and check</button>
+    <button class="btn primary" id="newBtn" aria-expanded="false" aria-controls="sheet">New meeting</button>
+    <div class="sheet" id="sheet">
+      <label class="date">Meeting date <input type="date" id="day"></label>
+      <button class="choice" id="recBtn">Record<span>Use this device's microphone</span></button>
+      <button class="choice" id="upBtn">Upload audio<span>m4a, mp3, wav or webm</span></button>
+      <button class="choice" id="pasteBtn">Paste a transcript<span>One turn per line, "speaker: text"</span></button>
+      <div class="paste" id="paste" hidden><textarea id="pasteText" placeholder="rm: Could you walk me through where your wealth comes from?&#10;client: Mostly from my company..."></textarea>
+        <button class="btn primary" id="pasteRun">Run the check</button></div>
+      <button class="choice" id="sampleBtn" aria-expanded="false">Load a sample meeting<span>Six synthetic meetings, ready to run</span></button>
+      <div class="samples" id="samples" hidden></div>
+      <input type="file" id="file" accept="audio/*" hidden>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="left">
+    <div class="empty" id="empty"><h1>No meeting yet</h1><p>Start with <b>New meeting</b>: record one, upload audio, paste a transcript, or load a sample meeting. Every fact the check finds links back to the words it came from.</p></div>
+    <div id="doc" hidden><div class="title"><h1 id="who"></h1><p id="sub"></p></div>
+      <div class="tools"><button class="btn quiet" id="dlBtn">Download check</button></div><div class="transcript" id="transcript"></div></div>
+  </section>
+  <aside class="right">
+    <div id="idle" class="muted">The check appears here.</div>
+    <div class="progress" id="progress" hidden>
+      <div class="step" data-audio><i></i>Transcribing on this machine</div>
+      <div class="step"><i></i>Extracting facts with their quotes</div>
+      <div class="step"><i></i>Checking compliance rules</div>
+    </div>
+    <div class="error" id="error" hidden></div>
+    <div id="results" hidden>
+      <div class="seg" id="seg"><span class="pill"></span>
+        <button class="on" data-v="overview">Overview<b id="cO"></b></button>
+        <button data-v="facts">Facts<b id="cF"></b></button>
+        <button data-v="gaps">Gaps<b id="cG"></b></button>
+      </div>
+      <div class="view on" id="v-overview"></div>
+      <div class="view" id="v-facts"></div>
+      <div class="view" id="v-gaps"></div>
+    </div>
+  </aside>
+</main>
+<audio id="player" preload="auto" hidden></audio>
+<script>
+const $ = id => document.getElementById(id);
+const LABEL = {"identity.full_name":"Full name","identity.date_of_birth":"Date of birth","identity.nationality":"Nationality","identity.residence_country":"Residence","identity.residence_since":"Resident since","identity.tax_residence":"Tax residence","relationship.person_present":"Person present","relationship.role":"Role","wealth_event.type":"Event","wealth_event.date":"Date","wealth_event.amount":"Amount","wealth_event.counterparty":"Counterparty","wealth_event.ownership_pct":"Stake","asset.type":"Asset","asset.value":"Value","asset.location":"Location","asset.custodian":"Custodian","structure.type":"Type","structure.name":"Name","structure.jurisdiction":"Jurisdiction","structure.established":"Established","structure.beneficial_owner":"Beneficial owner","income.source":"Source","income.amount":"Amount","liability.type":"Liability","liability.rate":"Rate","pep.none_declared":"No public function declared","pep.family_public_function":"Family public function","pep.self_public_function":"Public function","expected.initial_funding_source":"Source","expected.initial_funding_amount":"Amount"};
+const GROUPS = [["identity","Identity"],["relationship","People present"],["wealth_event","Source of wealth"],["asset","Assets"],["structure","Structures"],["income","Income"],["liability","Liabilities"],["pep","Public functions"],["expected","Planned funding"]];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cap1 = s => s ? s[0].toUpperCase() + s.slice(1) : s;
+const human = s => cap1(String(s).replace(/_/g, " "));
+const groupOf = f => GROUPS.find(([p]) => f.startsWith(p + "."));
+const fieldLabel = (field, ref) => (LABEL[field] || field) + (ref && ref.includes("/") ? " " + ref.split("/")[1] : "");
+const longLabel = (field, ref) => { const g = groupOf(field); return (g ? g[1] + ": " : "") + fieldLabel(field, ref).toLowerCase(); };
+const fmt = v => v.kind === "money" ? v.currency + " " + Number(v.amount).toLocaleString("en-US") + (v.period && v.period !== "one_off" ? " / " + v.period.replace("per_", "") : "")
+  : v.kind === "percent" ? Number(v.value) + "%" : v.kind === "date" ? v.value.slice(0, v.precision === "year" ? 4 : v.precision === "month" ? 7 : 10)
+  : v.kind === "relative_date" ? (v.resolved || "").slice(0, 7) + " (“" + v.words + "”)" : v.kind === "country" ? v.iso2 : v.kind === "bool" ? (v.value ? "Yes" : "No") : human(v.value);
+const PLAY = '<svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg>';
+let DATA = null, confirmed = new Set();
+
+// ---------- input ----------
+$("day").value = new Date().toISOString().slice(0, 10);
+const sheet = $("sheet"), newBtn = $("newBtn");
+newBtn.onclick = () => { sheet.classList.toggle("open"); newBtn.setAttribute("aria-expanded", sheet.classList.contains("open")); };
+document.addEventListener("click", e => { if (!e.target.closest(".new")) sheet.classList.remove("open"); });
+$("pasteBtn").onclick = () => { $("paste").hidden = !$("paste").hidden; $("pasteText").focus(); };
+$("pasteRun").onclick = () => { const t = $("pasteText").value.trim(); if (!t) return; const fd = new FormData(); fd.append("transcript", t); fd.append("meeting_date", $("day").value); submit("/api/run", fd, false); };
+let SAMPLES = null;
+$("sampleBtn").onclick = async () => {
+  const box = $("samples"), open = box.hidden;
+  box.hidden = !open; $("sampleBtn").setAttribute("aria-expanded", open);
+  if (!open || SAMPLES) return;
+  try { SAMPLES = await (await fetch("/api/samples")).json(); } catch (e) { box.textContent = "Could not load the samples."; return; }
+  box.innerHTML = SAMPLES.map(x => `<button class="choice" data-sample="${esc(x.id)}"><b>${esc(x.title)}</b><span>${esc(x.blurb)}</span></button>`).join("");
+};
+$("samples").addEventListener("click", e => { const b = e.target.closest("[data-sample]"); if (b) submit("/api/sample/" + b.dataset.sample, null, false); });
+$("upBtn").onclick = () => $("file").click();
+$("file").onchange = () => { const f = $("file").files[0]; if (!f) return; const fd = new FormData(); fd.append("audio", f); fd.append("meeting_date", $("day").value); submit("/api/run", fd, true); $("file").value = ""; };
+
+let rec = null, chunks = [];
+$("recBtn").onclick = async () => {
+  if (!navigator.mediaDevices || !window.MediaRecorder) return showError("This browser can't record here. On an iPad the page must be served over HTTPS (kyc-viewer --lan).");
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({audio: true});
+    const type = ["audio/mp4", "audio/webm"].find(t => MediaRecorder.isTypeSupported(t)) || "";
+    rec = new MediaRecorder(stream, type ? {mimeType: type} : {}); chunks = [];
+    rec.ondataavailable = e => chunks.push(e.data);
+    rec.onstop = () => { stream.getTracks().forEach(t => t.stop()); const blob = new Blob(chunks, {type: rec.mimeType});
+      const fd = new FormData(); fd.append("audio", blob, "recording." + (rec.mimeType.includes("mp4") ? "m4a" : "webm")); fd.append("meeting_date", $("day").value);
+      $("stopBtn").hidden = true; newBtn.hidden = false; submit("/api/run", fd, true); };
+    rec.start(); sheet.classList.remove("open"); newBtn.hidden = true; const s = $("stopBtn"); s.hidden = false; s.classList.add("rec");
+  } catch (e) { showError("Microphone not available: " + e.message); }
+};
+$("stopBtn").onclick = () => rec && rec.state === "recording" && rec.stop();
+
+function showError(msg) { $("progress").hidden = true; $("idle").hidden = true; const el = $("error"); el.textContent = msg; el.hidden = false; }
+
+async function submit(url, body, isAudio) {
+  sheet.classList.remove("open"); $("error").hidden = true; $("results").hidden = true; $("idle").hidden = true;
+  const steps = [...document.querySelectorAll(".step")].filter(s => isAudio || !s.hasAttribute("data-audio"));
+  document.querySelectorAll(".step").forEach(s => { s.className = "step"; s.hidden = !steps.includes(s); });
+  $("progress").hidden = false;
+  let i = 0; steps[0].classList.add("doing");
+  const tick = setInterval(() => { if (i < steps.length - 1) { steps[i].className = "step done"; steps[++i].classList.add("doing"); } }, isAudio ? 6000 : 4000);
+  try {
+    const r = await fetch(url, {method: "POST", body});
+    const j = await r.json();
+    clearInterval(tick);
+    if (!r.ok) return showError(j.detail || "The check failed.");
+    steps.forEach(s => s.className = "step done");
+    setTimeout(() => { $("progress").hidden = true; show(j); }, 250);
+  } catch (e) { clearInterval(tick); showError("Could not reach the server: " + e.message); }
+}
+
+// ---------- render ----------
+function show(d) {
+  DATA = d; confirmed = new Set();
+  const byUtt = {}; d.facts.forEach(f => f.spans.forEach(s => (byUtt[s.utt_id] ||= []).push({...s, fact: f.fact_id})));
+  $("transcript").innerHTML = d.transcript.map(u => {
+    const merged = []; (byUtt[u.utt_id] || []).sort((a, b) => a.start - b.start).forEach(m => { const l = merged.at(-1);
+      if (l && m.start < l.end) { l.end = Math.max(l.end, m.end); l.facts.push(m.fact); } else merged.push({start: m.start, end: m.end, facts: [m.fact]}); });
+    let h = "", p = 0; merged.forEach(m => { h += esc(u.text.slice(p, m.start)) + `<span class="q" tabindex="0" data-f="${m.facts.join(" ")}">${esc(u.text.slice(m.start, m.end))}</span>`; p = m.end; });
+    const named = u.speaker && u.speaker !== "unknown";
+    return `<p class="utt"><span class="who${named ? " named" : ""}">${esc(named ? u.speaker : u.utt_id.replace("u-", ""))}</span>${h}${esc(u.text.slice(p))}</p>`; }).join("");
+  const name = d.facts.find(f => f.field === "identity.full_name");
+  $("who").textContent = name ? fmt(name.value) : "Meeting";
+  $("sub").textContent = [d.sample ? "Sample meeting " + d.sample : null, d.audio_url ? "from audio, transcribed on this machine" : "from a transcript",
+    d.transcript.length + " turns", "$" + d.cost_usd.toFixed(2)].filter(Boolean).join(" · ");
+  $("empty").hidden = true; $("doc").hidden = false; $("idle").hidden = true; $("error").hidden = true;
+  if (d.audio_url) $("player").src = d.audio_url;
+  renderRight(); $("results").hidden = false; view("overview");
+}
+
+const DOUBT = {low_confidence: "The extraction was unsure", unclear_audio: "The transcriber was unsure", changed_answer: "The client changed this answer",
+  funding_exceeds_sources: "Plausibility check", date_in_future: "Plausibility check", implausible_age: "Plausibility check"};
+function noteList(d) {
+  return d.contradictions.map(c => ({t: cap1(longLabel(c.field, c.subject_ref).replace(/^.*?: /, "")) + " differs from the bank's file",
+      s: c.note || "Tap to see the words", f: d.facts.filter(f => f.field === c.field && (f.subject_ref || null) === (c.subject_ref || null)).map(f => f.fact_id)}))
+    .concat(d.doubts.map(x => ({t: cap1(x.message.replace(/^[a-z_.]+: /, "")), s: DOUBT[x.rule] || x.rule, f: x.fact_ids})));
+}
+function renderRight() {
+  const d = DATA, facts = Object.fromEntries(d.facts.map(f => [f.fact_id, f]));
+  const keys = d.facts.filter(f => f.critical && f.status !== "superseded");
+  const notes = noteList(d);
+  const row = (cls, t, s, f, i) => `<div class="row ${cls}${f ? " link" : ""}" ${f ? `data-f="${f.join(" ")}"` : ""} style="animation-delay:${i * 45}ms"><span class="dot"></span><span class="t">${esc(t)}<span class="s">${esc(s)}</span></span></div>`;
+  $("v-overview").innerHTML =
+    `<div class="block reveal"><p class="h">Compliance flags</p>${d.flags.map((f, i) => row("flag", f.title, f.reason_id, null, i)).join("") || '<p class="muted">No flags.</p>'}</div>` +
+    `<div class="block reveal"><p class="h">Key figures to confirm <span class="tally" id="tally"></span></p>${keys.map((f, i) =>
+      `<div class="key" style="animation-delay:${80 + i * 35}ms"><span class="k" data-fact="${f.fact_id}">${esc(longLabel(f.field, f.subject_ref))}<b>${esc(fmt(f.value))}</b></span>` +
+      (f.clip && d.audio_url ? `<button class="icon" aria-label="Play the words" data-clip="${f.clip.join(",")}" data-fact="${f.fact_id}">${PLAY}</button>` : "<span></span>") +
+      `<button class="ok" data-ok="${f.fact_id}">Confirm</button></div>`).join("") || '<p class="muted">No key figures.</p>'}</div>` +
+    `<div class="block reveal"><p class="h">Needs confirmation</p>${notes.map((n, i) => row("confirm", n.t, n.s, n.f, i)).join("") || '<p class="muted">Nothing else to confirm.</p>'}</div>`;
+  const groups = GROUPS.map(([p, nm]) => [nm, d.facts.filter(f => f.field.startsWith(p + "."))]).filter(([, fs]) => fs.length);
+  const flagged = new Set([...d.doubts.flatMap(x => x.fact_ids)]);
+  $("v-facts").innerHTML = `<div class="reveal">` + groups.map(([nm, fs], i) =>
+    `<div class="group${i === 0 ? " open" : ""}" style="animation-delay:${i * 40}ms"><button aria-expanded="${i === 0}">${nm}<em>${fs.length}</em><span class="chev"></span></button><div class="facts"><div>` +
+    fs.map(f => `<div class="fact" tabindex="0" data-fact="${f.fact_id}"><span class="k">${esc(fieldLabel(f.field, f.subject_ref))}${f.status === "superseded" ? '<span class="warn">Earlier answer, changed later</span>' : f.status === "contradicted" || flagged.has(f.fact_id) ? '<span class="warn">Needs confirmation</span>' : ""}</span><span class="v">${esc(fmt(f.value))}</span></div>`).join("") +
+    `</div></div></div>`).join("") + `</div>` || '<p class="muted">No facts.</p>';
+  $("v-gaps").innerHTML = `<div class="reveal"><p class="h">Not said in the meeting. Ask the client</p>` + d.gaps.map((g, i) => { const [k, s] = g.split("@"); return row("gap", cap1(longLabel(k, s)), "", null, i); }).join("") + `</div>`;
+  $("cO").textContent = d.flags.length + notes.length; $("cF").textContent = d.facts.length; $("cG").textContent = d.gaps.length;
+  tally();
+}
+function tally() { const n = DATA.facts.filter(f => f.critical && f.status !== "superseded").length; const t = $("tally"); if (t) t.textContent = n ? `${confirmed.size} of ${n}` : ""; }
+
+// ---------- downloadable report ----------
+function report(d) {
+  const name = (d.facts.find(f => f.field === "identity.full_name") || {}).value;
+  const who = name ? fmt(name) : "Meeting";
+  const quotes = f => f.spans.map(s => "“" + esc(s.quote) + "”").join(" · ");
+  const keys = d.facts.filter(f => f.critical && f.status !== "superseded");
+  const li = xs => xs.length ? "<ul>" + xs.join("") + "</ul>" : "<p class=m>None.</p>";
+  const groups = GROUPS.map(([p, nm]) => [nm, d.facts.filter(f => f.field.startsWith(p + "."))]).filter(([, fs]) => fs.length);
+  const today = new Date().toISOString().slice(0, 10);
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pre-submission check: ${esc(who)}</title><style>
+body{font:15px/1.5 "Source Sans 3",-apple-system,"Segoe UI",sans-serif;color:#17212B;background:#fff;max-width:820px;margin:40px auto;padding:0 20px}
+h1{font-size:26px;margin:0 0 4px}h2{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#5B6670;margin:28px 0 8px;border-bottom:1px solid #E2E5DF;padding-bottom:6px}
+.m{color:#5B6670}.banner{background:#F3DE8A;padding:8px 12px;border-radius:6px;margin:16px 0}table{width:100%;border-collapse:collapse}
+td{padding:7px 8px 7px 0;border-bottom:1px solid #E2E5DF;vertical-align:top}td.v{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;white-space:nowrap}
+td.q{font-family:"Source Serif 4",Georgia,serif;color:#5B6670}.ok,.no{font-weight:600;white-space:nowrap}.ok{color:#0E6B66}.no{color:#8A6100}li{margin:4px 0}
+@media print{body{margin:0}.banner{border:1px solid #8A6100}}</style></head><body>
+<h1>Pre-submission check: ${esc(who)}</h1>
+<p class=m>Meeting ${esc(d.meeting_date || "")} · ${d.sample ? "sample meeting " + esc(d.sample) : d.audio_url ? "from audio" : "from a transcript"} · ${d.transcript.length} turns · generated ${today} · ${esc(d.extractor)}</p>
+<p class=banner>Synthetic demo data, not a real client. This is a preparation aid for the relationship manager, not a compliance decision.</p>
+<h2>Compliance flags</h2>${li(d.flags.map(f => `<li><b>${esc(f.title)}</b> <span class=m>(${esc(f.reason_id)})</span></li>`))}
+<h2>Key figures: ${keys.filter(f => confirmed.has(f.fact_id)).length} of ${keys.length} confirmed by the RM</h2>
+<table>${keys.map(f => `<tr><td>${esc(longLabel(f.field, f.subject_ref))}</td><td class=v>${esc(fmt(f.value))}</td><td>${confirmed.has(f.fact_id) ? "<span class=ok>Confirmed</span>" : "<span class=no>Not confirmed</span>"}</td></tr>`).join("")}</table>
+<h2>Needs confirmation</h2>${li(noteList(d).map(n => `<li>${esc(n.t)} <span class=m>(${esc(n.s)})</span></li>`))}
+<h2>Not said in the meeting: ask the client</h2>${li(d.gaps.map(g => { const [k, s] = g.split("@"); return `<li>${esc(cap1(longLabel(k, s)))}</li>`; }))}
+<h2>Every fact, with the client's words</h2>${groups.map(([nm, fs]) => `<p><b>${esc(nm)}</b></p><table>${fs.map(f => `<tr><td>${esc(fieldLabel(f.field, f.subject_ref))}${f.status === "superseded" ? " <span class=m>(earlier answer, changed later)</span>" : ""}</td><td class=v>${esc(fmt(f.value))}</td><td class=q>${quotes(f)}</td></tr>`).join("")}</table>`).join("")}
+</body></html>`;
+}
+$("dlBtn").onclick = () => {
+  if (!DATA) return;
+  const name = ((DATA.facts.find(f => f.field === "identity.full_name") || {}).value || {}).value || "meeting";
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([report(DATA)], {type: "text/html"}));
+  a.download = "check-" + name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") + ".html";
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+
+// ---------- interaction ----------
+function select(ids) {
+  ids = new Set(ids); let first = null;
+  document.querySelectorAll(".q").forEach(q => { const hit = q.dataset.f.split(" ").some(i => ids.has(i)); q.classList.toggle("on", hit); if (hit) first ||= q; });
+  document.querySelectorAll(".fact").forEach(r => r.classList.toggle("on", ids.has(r.dataset.fact)));
+  first?.scrollIntoView({behavior: "smooth", block: "center"});
+}
+function pill() { const on = document.querySelector("#seg button.on"), p = document.querySelector("#seg .pill"); if (on) { p.style.left = on.offsetLeft + "px"; p.style.width = on.offsetWidth + "px"; } }
+function view(v) { document.querySelectorAll("#seg button").forEach(b => b.classList.toggle("on", b.dataset.v === v));
+  document.querySelectorAll(".view").forEach(x => { const on = x.id === "v-" + v; x.classList.toggle("on", on); const r = on && x.querySelector(".reveal"); if (r) { r.classList.remove("reveal"); void r.offsetWidth; r.classList.add("reveal"); } }); pill(); }
+let stopAt = null;
+function play(btn) {
+  const [a, b] = btn.dataset.clip.split(",").map(Number), p = $("player");
+  document.querySelectorAll(".icon.playing").forEach(x => x.classList.remove("playing"));
+  p.currentTime = Math.max(0, a - 0.35); stopAt = b + 0.35; btn.classList.add("playing"); p.play();
+  p.ontimeupdate = () => { if (p.currentTime >= stopAt) { p.pause(); btn.classList.remove("playing"); } };
+  select([btn.dataset.fact]);
+}
+$("seg").addEventListener("click", e => { const b = e.target.closest("button"); if (b) view(b.dataset.v); });
+document.querySelector(".right").addEventListener("click", e => {
+  const g = e.target.closest(".group > button"); if (g) { const el = g.parentElement; el.classList.toggle("open"); g.setAttribute("aria-expanded", el.classList.contains("open")); return; }
+  const pl = e.target.closest(".icon[data-clip]"); if (pl) return play(pl);
+  const ok = e.target.closest(".ok"); if (ok) { const id = ok.dataset.ok; confirmed.has(id) ? confirmed.delete(id) : confirmed.add(id); ok.classList.toggle("done", confirmed.has(id)); ok.textContent = confirmed.has(id) ? "Confirmed" : "Confirm"; return tally(); }
+  const k = e.target.closest("[data-fact]"); if (k) return select([k.dataset.fact]);
+  const r = e.target.closest(".row.link"); if (r) select(r.dataset.f.split(" "));
+});
+$("transcript").addEventListener("click", e => { const q = e.target.closest(".q"); if (!q) return; const ids = q.dataset.f.split(" "); view("facts");
+  const row = document.querySelector(`.fact[data-fact="${ids[0]}"]`); row?.closest(".group")?.classList.add("open"); select(ids); row?.scrollIntoView({behavior: "smooth", block: "nearest"}); });
+addEventListener("resize", pill);
+</script>
+</body>
+</html>
