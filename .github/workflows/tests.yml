@@ -1,0 +1,27 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - name: "Install (no audio extra: the local transcriber needs Apple Silicon)"
+        run: uv sync --extra viewer
+      - name: "Tests (fakes only: no API key, no network, no spend)"
+        run: uv run pytest -q
+      - name: Every case is consistent with the rules
+        run: uv run kyc-eval run --pipeline gold
