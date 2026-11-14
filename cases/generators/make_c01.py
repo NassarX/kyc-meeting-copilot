@@ -29,13 +29,18 @@ def span(utt, quote):
 
 def fact(field, value, spans, subject=None, derivation=None):
     d = {"field": field}
-    if subject: d["subject_ref"] = subject
+    if subject:
+        d["subject_ref"] = subject
     d["value"] = value
     d["spans"] = [span(*s) for s in spans]
-    if derivation: d["derivation"] = derivation
+    if derivation:
+        d["derivation"] = derivation
     return d
 
-money = lambda a, c, p=None: {"kind": "money", "amount": a, "currency": c, **({"period": p} if p else {})}
+def money(a, c, p=None):
+    return {"kind": "money", "amount": a, "currency": c, **({"period": p} if p else {})}
+
+
 facts = [
  fact("identity.full_name", {"kind": "text", "value": "Isabelle Marchetti-Okonkwo"}, [("u-15", "Isabelle Marchetti-Okonkwo")]),
  fact("identity.residence_country", {"kind": "country", "iso2": "LU"}, [("u-12", "I moved to Luxembourg")]),

@@ -4,7 +4,7 @@ from decimal import Decimal
 import pytest
 
 from kyc_copilot.domain.enums import Purpose, Role, SourceType
-from kyc_copilot.domain.models import Actor, Fact, Money, Provenance, SpanOffset, Text
+from kyc_copilot.domain.models import Actor, Fact, Money, Provenance, SpanOffset
 from kyc_copilot.service import CaseService
 from kyc_copilot.store.sqlite import SQLiteStore
 from kyc_copilot.taxonomy import load_taxonomy

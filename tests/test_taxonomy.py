@@ -2,7 +2,7 @@ from datetime import date
 
 import pytest
 
-from kyc_copilot.domain.models import Country, ExactDate, RelativeDate, Text
+from kyc_copilot.domain.models import Country, RelativeDate, Text
 from kyc_copilot.taxonomy import TaxonomyError
 from conftest import make_fact
 

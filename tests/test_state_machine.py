@@ -5,7 +5,7 @@ import pytest
 from kyc_copilot.domain.enums import CaseState as S, GateKind, Role
 from kyc_copilot.domain.models import GateEvent
 from kyc_copilot.workflow.state_machine import (
-    ALL_TRIGGERS, GATE_STATES, GATE_TRANSITIONS, GLOBAL, TERMINAL, TRANSITIONS, IllegalTransition, next_state,
+    ALL_TRIGGERS, GATE_STATES, GLOBAL, TERMINAL, TRANSITIONS, IllegalTransition, next_state,
 )
 
 

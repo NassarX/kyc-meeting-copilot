@@ -6,10 +6,10 @@ import pytest
 
 from kyc_copilot.domain.enums import CaseState as S, FactStatus, GateKind, Role, SourceType
 from kyc_copilot.domain.models import Actor, ChecklistItem, GateEvent, Money, Provenance, Text
-from kyc_copilot.service import CaseService, FactRejected, GateRejected, input_hash
+from kyc_copilot.service import FactRejected, GateRejected, input_hash
 from kyc_copilot.store.sqlite import TABLES
 from kyc_copilot.workflow.state_machine import IllegalTransition
-from conftest import AGENT, AS_OF, RM, ROLES, make_fact
+from conftest import AGENT, AS_OF, RM, make_fact
 
 BOB = Actor(kind="human", id="rm.bob", role=Role.RM)
 RECONCILE = Actor(kind="agent_step", id="S4_reconcile")

@@ -31,6 +31,7 @@ viewer = [
 dev = [
     "httpx>=0.28.1",
     "pytest>=8.0",
+    "ruff>=0.14",
 ]
 
 [build-system]
@@ -42,3 +43,10 @@ packages = ["src/kyc_copilot"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "W"]  # ruff defaults plus warnings; long lines are allowed (transcripts)

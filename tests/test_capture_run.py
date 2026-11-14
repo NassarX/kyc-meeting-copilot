@@ -76,7 +76,8 @@ def test_run_capture_scores_each_recording_against_the_case_gold(tmp_path, taxon
     case = load_case(CASES / "C01.yaml", taxonomy, reasons)
     audio = tmp_path / "spike-01-baseline.wav"
     audio.write_bytes(b"x")
-    heard = lambda a, d: cap.segments_to_transcript([{"text": "I moved to Luxembourg three years ago in June."}], d)
+    def heard(a, d):
+        return cap.segments_to_transcript([{"text": "I moved to Luxembourg three years ago in June."}], d)
     reply = ex.Extraction(facts=[ef("identity.residence_country", "LU", "u-01", "I moved to Luxembourg")])
     card = run_capture(case, [audio], ex.ModelExtractor(taxonomy, client=FakeClient(reply)), taxonomy, reasons,
                        transcribe=heard)
@@ -92,7 +93,8 @@ def test_capture_scores_a_device_transcript_next_to_whisper(tmp_path, taxonomy):
     apple.write_text("I moved to Luxembourg three years ago in June.\n", encoding="utf-8")
     audio = tmp_path / "spike-01-baseline.m4a"
     audio.write_bytes(b"x")
-    heard = lambda a, d: cap.segments_to_transcript([{"text": "I moved to Luxembourg three years ago in June."}], d)
+    def heard(a, d):
+        return cap.segments_to_transcript([{"text": "I moved to Luxembourg three years ago in June."}], d)
     reply = ex.Extraction(facts=[ef("identity.residence_country", "LU", "u-01", "I moved to Luxembourg")])
     card = run_capture(case, [audio], ex.ModelExtractor(taxonomy, client=FakeClient(reply)), taxonomy, reasons,
                        transcribe=heard, transcripts=[apple])

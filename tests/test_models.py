@@ -4,9 +4,9 @@ from decimal import Decimal
 import pytest
 from pydantic import ValidationError
 
-from kyc_copilot.domain.enums import GateKind, Purpose, Role, SourceType
-from kyc_copilot.domain.models import Actor, Case, Fact, GateEvent, Money, Provenance
-from conftest import make_fact, transcript_prov
+from kyc_copilot.domain.enums import GateKind, Role, SourceType
+from kyc_copilot.domain.models import Actor, Case, GateEvent, Money, Provenance
+from conftest import make_fact
 
 
 def test_invariant_I1_fact_without_provenance_is_rejected():

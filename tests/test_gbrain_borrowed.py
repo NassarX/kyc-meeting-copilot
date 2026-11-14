@@ -1,6 +1,5 @@
 """Hardening: six ideas borrowed from gbrain (MIT), each tested with fakes: no network, no spend."""
 from datetime import date
-from decimal import Decimal
 from pathlib import Path
 
 import pytest
