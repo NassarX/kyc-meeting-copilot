@@ -21,6 +21,7 @@ DEFAULT_ASR = "mlx-community/whisper-large-v3-turbo"
 UNKNOWN = "unknown"
 ASR_FORMAT = "words-v1"  # cache key part: transcripts now keep per-word probabilities and timings
 UNCLEAR = 0.5  # a word the transcriber gave less than this is flagged (clean audio had none below it)
+UNSURE_SEGMENT = 0.7  # a segment averaging less than this may be invented (eval/results/gap-probe.md)
 _NO_BREAK = {"Mr", "Ms", "Mrs", "Dr", "Prof", "St", "Mt", "Inc", "Ltd", "Co", "No", "vs"}
 CACHE_DIR = Path(__file__).parents[2] / ".eval-cache"
 
@@ -99,3 +100,11 @@ def read_device_transcript(path: Path, meeting_date: date) -> Transcript:
 def unclear_words(utt: Utterance, start: int, end: int) -> list[WordScore]:
     """Words under a quote that the transcriber was unsure of."""
     return [w for w in utt.words if w.start < end and w.end > start and w.probability < UNCLEAR]
+
+
+def unsure_segment(utt: Utterance) -> float | None:
+    """The segment's mean word probability, when it is low enough that Whisper may have invented the segment."""
+    if not utt.words:
+        return None
+    mean = sum(w.probability for w in utt.words) / len(utt.words)
+    return mean if mean < UNSURE_SEGMENT else None
