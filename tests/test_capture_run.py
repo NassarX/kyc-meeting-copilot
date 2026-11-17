@@ -174,3 +174,28 @@ def test_audio_doubts_can_be_switched_off_for_a_before_after_comparison(taxonomy
     garbled = ef("asset.custodian", "Swiss grams", "u-01", "Swiss grams", "asset/1")
     out = ex.ModelExtractor(taxonomy, client=FakeClient(ex.Extraction(facts=[garbled])), audio_doubts=False).run(case)
     assert not [d for d in out.doubts if d.rule == "unclear_audio"]
+
+
+def _segment(words):
+    text = " ".join(w for w, _ in words)
+    return [{"start": 0.0, "end": float(len(words)), "text": text,
+             "words": [{"word": w, "start": float(i), "end": i + 1.0, "probability": p}
+                       for i, (w, p) in enumerate(words)]}]
+
+
+def test_a_low_confidence_segment_flags_its_facts_even_with_no_word_under_the_cutoff(taxonomy):
+    # Whisper invented "Peter Vandenberg" in a 30 s gap: no word under 0.5, but the segment averaged 0.61
+    t = cap.segments_to_transcript(_segment([("Peter", 0.68), ("Vandenberg", 0.54)]), DAY)
+    case = load_case(CASES / "C01.yaml", taxonomy, load_bounce_reasons(taxonomy)).model_copy(update={"transcript": t})
+    name = ef("identity.full_name", "Peter Vandenberg", "u-01", "Peter Vandenberg")
+    out = ex.ModelExtractor(taxonomy, client=FakeClient(ex.Extraction(facts=[name]))).run(case)
+    (d,) = [d for d in out.doubts if d.rule == "unclear_audio"]
+    assert "0.61" in d.message and "may not have been said" in d.message
+
+
+def test_a_confident_segment_with_one_middling_word_raises_no_doubt(taxonomy):
+    t = cap.segments_to_transcript(_segment([("I", 0.99), ("moved", 0.98), ("to", 0.99), ("Luxembourg", 0.6)]), DAY)
+    case = load_case(CASES / "C01.yaml", taxonomy, load_bounce_reasons(taxonomy)).model_copy(update={"transcript": t})
+    fact = ef("identity.residence_country", "LU", "u-01", "I moved to Luxembourg")
+    out = ex.ModelExtractor(taxonomy, client=FakeClient(ex.Extraction(facts=[fact]))).run(case)
+    assert not [d for d in out.doubts if d.rule == "unclear_audio"]

@@ -347,15 +347,20 @@ class ModelExtractor:
                                     f"{old.field}: the client first said {_short(old.value)}, then {_short(new.value)}. "
                                     f"Confirm which stands"))
         if self.audio_doubts:
-            from kyc_copilot.capture import unclear_words
+            from kyc_copilot.capture import unclear_words, unsure_segment
             utts = {u.utt_id: u for u in case.transcript.utterances}
             for f in facts:
-                weak = [(utts[o.utt_id].text[w.start:w.end], w.probability) for p in f.provenance for o in p.span_offsets
-                        if o.utt_id in utts for w in unclear_words(utts[o.utt_id], o.start, o.end)]
+                quoted = [(utts[o.utt_id], o) for p in f.provenance for o in p.span_offsets if o.utt_id in utts]
+                weak = [(u.text[w.start:w.end], w.probability) for u, o in quoted for w in unclear_words(u, o.start, o.end)]
+                low = sorted({m for u, _ in quoted if (m := unsure_segment(u)) is not None})
+                notes = []
                 if weak:
-                    words = ", ".join(f"'{t}' ({pr:.2f})" for t, pr in weak)
+                    notes.append("the transcriber was unsure of " + ", ".join(f"'{t}' ({pr:.2f})" for t, pr in weak))
+                if low:
+                    notes.append(f"the words around it averaged {low[0]:.2f} and may not have been said")
+                if notes:
                     doubts.append(Doubt((f.fact_id,), "unclear_audio",
-                                        f"{f.field}: the transcriber was unsure of {words}. Listen to the clip"))
+                                        f"{f.field}: {'; '.join(notes)}. Listen to the clip"))
         return PipelineOutput(facts=tuple(facts), contradictions=tuple(sorted(groups, key=str)), doubts=tuple(doubts))
 
     def cost_markdown(self) -> str:
