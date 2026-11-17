@@ -5,7 +5,7 @@ All notable changes are recorded here. The format follows [Keep a Changelog](htt
 ## [Unreleased]
 
 ### Added
-- A fact quoting a transcript segment that Whisper scored under 0.7 on average now gets "listen to the clip": Whisper invents text in long silences, and a quote of it passes the quote check ([evaluation](docs/evaluation.md#catching-misheard-values)).
+- A fact quoting a transcript segment that Whisper scored under 0.7 on average now gets "listen to the clip": Whisper invents text in long silences, and a quote of it passes the quote check ([evaluation](docs/evaluation.md#catching-misheard-values)). The probe behind it is `eval/tools/gap_probe.py`.
 - Contribution workflow: pull requests with squash merges, a Conventional Commit check on PR titles, lint and a full-history secret scan in CI, Dependabot, pre-commit hooks, a PR template and `CONTRIBUTING.md`.
 
 ## [0.1.0] - 2026-11-14

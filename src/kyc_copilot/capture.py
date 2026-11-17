@@ -21,7 +21,7 @@ DEFAULT_ASR = "mlx-community/whisper-large-v3-turbo"
 UNKNOWN = "unknown"
 ASR_FORMAT = "words-v1"  # cache key part: transcripts now keep per-word probabilities and timings
 UNCLEAR = 0.5  # a word the transcriber gave less than this is flagged (clean audio had none below it)
-UNSURE_SEGMENT = 0.7  # a segment averaging less than this may be invented: all 7 gap inventions, 10 of 498 real
+UNSURE_SEGMENT = 0.7  # a segment averaging less than this may be invented (eval/results/gap-probe.md)
 _NO_BREAK = {"Mr", "Ms", "Mrs", "Dr", "Prof", "St", "Mt", "Inc", "Ltd", "Co", "No", "vs"}
 CACHE_DIR = Path(__file__).parents[2] / ".eval-cache"
 
